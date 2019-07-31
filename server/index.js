@@ -13,7 +13,7 @@ const userRoutes = require('./routes/user')
 const publishRoutes = require('./routes/publish')
 
 // Open connection to database
-const db = mongoose.connect('mongodb://localhost:27017/ngobrolim', {
+const db = mongoose.connect('mongodb://afdallah:biasa123@ds117334.mlab.com:17334/ngobrolim', {
   useNewUrlParser: true,
   useFindAndModify: false,
   useCreateIndex: true,

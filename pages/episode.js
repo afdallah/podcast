@@ -1,4 +1,5 @@
 import Layout from '../components/layout'
+import { server } from '../config'
 import fetch from 'isomorphic-unfetch'
 
 const Episode = (props) => {
@@ -12,8 +13,8 @@ const Episode = (props) => {
   )
 }
 
-Episode.getInitialProps = async function ({ store, isServer, pathname, query }) {
-  const res = await fetch(`http://localhost:3000/api/episode/${query.id}`)
+Episode.getInitialProps = async ({ store, isServer, pathname, query }) => {
+  const res = await fetch(`${server}/api/episode/${query.id}`)
   const data = await res.json();
   store.dispatch({ type: 'CHANGE_PODCAST', payload: data.audio })
 

@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
+const { upload } = require('../middleware')
 
 router.get('/', (req, res) => {
   User.find({}, (err, users) => {
@@ -15,12 +16,16 @@ router.get('/:id', (req, res, next) => {
   })
 })
 
-router.post('/', (req, res, next) => {
+router.post('/', upload.single('photo'), (req, res, next) => {
   const user = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     password: req.body.password,
-    email: req.body.email
+    email: req.body.email,
+    photo: {
+      url: req.file.url,
+      secure_url: req.file.secure_url
+    },
     // podcasts: [{ type: Schema.Types.ObjectId, ref: 'Podcast' }]
   })
 
@@ -37,7 +42,7 @@ router.put('/:id', (req, res, next) => {
 })
 
 router.delete('/:id', (req, res, next) => {
-  Episode.findByIdAndRemove(req.params.id, (err) => {
+  User.findByIdAndRemove(req.params.id, (err) => {
     if (err) next(err)
     res.send('Deleted succesfully')
   })

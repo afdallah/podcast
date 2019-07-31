@@ -25,7 +25,6 @@ class AudioPlayer extends React.Component {
   }
 
   render () {
-    console.log(this.props.player)
     return (
       <Media ref={c => (this.media = c)}>
         {mediaProps => (

@@ -2,6 +2,14 @@ import css from '../styles.scss'
 import Option from './option'
 import { classNames } from '../helpers'
 
+const emptyPlacholder = [{
+  key: +new Date(),
+  props: {
+    children: 'Nothing to select',
+    value: null
+  }
+}]
+
 class Select extends React.Component {
   state = {
     selected: '',
@@ -11,12 +19,17 @@ class Select extends React.Component {
   }
 
   componentDidMount() {
-    // if (this.props.children.length < 1) return
+    let children
+    if (this.props.children.length <= 0) {
+      children = emptyPlacholder
+    } else {
+      children = this.props.children
+    }
     const index = this.props.children.findIndex(el => el.props.selected) >= 0 || 0
 
     this.setState({
       children: this.props.children,
-      selected: this.props.children[index].props.children
+      selected: children[index].props.children
     })
 
     window.addEventListener('click', this.clickOutside)
@@ -76,6 +89,8 @@ class Select extends React.Component {
           className={css.input}
           onChange={this.handleSearch}
           onFocus={() => {this.setState({ isFocus: true })}}
+          required={this.props.required && !this.state.value}
+          disabled={!this.state.value ? false : true}
         />
         <div className={classes}>
           {children.map((elem, i) => (

@@ -1,5 +1,8 @@
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
+import Link from 'next/link'
+
+import {server} from '../config'
 import Layout from '../components/layout'
 import EpisodeCard from '../components/episodeCard'
 import Flex from '../components/flex'
@@ -25,13 +28,13 @@ const Index = (props) => {
   )
 }
 
-Index.getInitialProps = async function (context) {
+Index.getInitialProps = async function () {
   // let data
 
   // if (cache.episodes) {
   //   data = cache.episodes
   // } else {
-    const res = await fetch(`http://localhost:3000/api/episode`)
+    const res = await fetch(`${server}/api/episode`)
     const data = await res.json()
   // }
 

@@ -6,8 +6,14 @@ import css from '../styles.scss'
 export default (props) => {
   return (
     <Link
-      href={`/episode?id=${props._id}`}
-      as={`/episode/${props.slug}`}
+      href={{
+        pathname: '/episode',
+        query: {
+          id: props._id,
+        }
+      }}
+
+      as={`/episode/${props._id}`}
     >
 
       <div className={css.coloredCard}>

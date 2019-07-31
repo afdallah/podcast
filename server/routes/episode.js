@@ -7,17 +7,17 @@ router.get('/', (req, res, next) => {
   Episode
     .find()
     .populate('host')
-    .exec((err, data) => {
+    .exec((err, episode) => {
       if (err) next(err)
 
-      res.json(data)
+      res.json(episode)
     })
 })
 
 router.get('/:id', (req, res, next) => {
-  Episode.findById(req.params.id, (err, product) => {
+  Episode.findById(req.params.id, (err, episode) => {
     if (err) next(err)
-    res.send(product)
+    res.json(episode)
   })
 })
 
@@ -42,7 +42,7 @@ router.post('/', upload.single('image'), (req, res, next) => {
     .catch(e => next(e))
 })
 
-router.put('/:id', (req, res, next) => {
+router.put('/:id', upload.single('image'), (req, res, next) => {
   Episode.findByIdAndUpdate(req.params.id, { $set: req.body }, (err, episode) => {
     if (err) next(err)
     res.send('Episode updated')

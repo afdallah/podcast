@@ -321,7 +321,17 @@ $gradients : (
 
 // Custom select component
 .ui-select {
+
   position: relative;
+  input[disabled] {
+    background: #24273c;
+    color: #a9a9a9;
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0px 0px 0 2px #24273c
+    }
+  }
 
   &:before {
     content: '▾';
