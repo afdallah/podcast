@@ -2,7 +2,11 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Container from './container'
 import css from '../styles.scss'
-import Player from './player'
+
+import dynamic from "next/dynamic";
+const Player = dynamic(() => import('./player'), {
+  ssr: false
+});
 
 export default ({ children }) => (
   <>

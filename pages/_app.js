@@ -2,8 +2,9 @@ import App, { Container } from 'next/app'
 import React from 'react'
 import withRedux from 'next-redux-wrapper'
 import makeStore from '../store'
-
 import { Provider } from 'react-redux'
+
+import 'normalize.css'
 
 class MyApp extends App {
   render () {

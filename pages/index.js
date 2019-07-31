@@ -7,7 +7,6 @@ import Layout from '../components/layout'
 import EpisodeCard from '../components/episodeCard'
 import Flex from '../components/flex'
 
-import 'normalize.css'
 import css from '../styles.scss'
 
 // let cache = {}
