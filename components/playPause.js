@@ -27,8 +27,8 @@ class PlayPause extends Component {
     return (
       <svg
         role="button"
-        width="36px"
-        height="36px"
+        width="45px"
+        height="45px"
         viewBox="0 0 36 36"
         className={className}
         onClick={this._handlePlayPause}

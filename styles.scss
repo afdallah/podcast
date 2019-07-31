@@ -7,6 +7,9 @@ $text-color-mute: #ECEEF4;
 $text-color-disable: #ffffffab;
 $light-purple: #8B6FF3;
 
+// Player
+$player-height: 45px;
+
 :global * {
   box-sizing: border-box;
   outline: none;
@@ -48,6 +51,7 @@ $light-purple: #8B6FF3;
   height: 70px;
   background: $light-grey;
   box-shadow: 0 6px 77px 0 rgba(0, 0, 0, 0.11);
+  padding: 0 20px;
 
   &__inner {
     display: flex;
@@ -77,8 +81,14 @@ $light-purple: #8B6FF3;
 
 // Layouting
 .container {
+  width: 100%;
   max-width: 960px;
-  margin: auto
+  margin: auto;
+  padding: 20px;
+
+  @media screen and (min-width: 960px) {
+    padding: 0;
+  }
 }
 
 .flex {
@@ -131,7 +141,15 @@ $gradients : (
 .coloredCard {
   position: relative;
   margin: 0 20px 40px;
-  width: calc((100% - 20px - 40px - 40px - 20px) / 3);
+  width: 100%;
+
+  @media screen and (min-width: 600px) {
+    width: calc(100% / 2 - 20px - 20px);
+  }
+
+  @media screen and (min-width: 870px) {
+    width: calc((100% - 20px - 40px - 40px - 20px) / 3);
+  }
 
   @for $i from 1 through length($gradients) {
     $combi: nth($gradients, $i);
@@ -139,60 +157,44 @@ $gradients : (
     $color1: nth($properties, 1);
     $color2: nth($properties, 2);
 
-    // &:nth-child(#{$i}) .coloredShadow,
-    // &:nth-child(#{$i}) .coloredShadow  {
-    //   position: absolute;
-    //   content: '';
-    //   width: 50%;
-    //   height: 50px;
-    //   bottom: 0;
-    //   left: 50%;
-    //   transform: translateX(-50%);
-    //   border-radius: 20px;
-    //   filter: blur(50px);
-    //   transition: all .3s ease-in-out;
-    //   background-image: linear-gradient(39deg, #{$color1}, #{$color2});
-    //   visibility: hidden;
-    //   transform: translate(-50%, -0%);
-    //   opacity: 0;
-    // }
+    @media screen and (min-width: 1000px) {
+      &:nth-child(#{$i}n + #{$i}) .coloredOutline {
+        width: calc(100% + 6px + 14px);
+        height: calc(100% + 6px + 14px);
+        position: absolute;
+        left: -10px;
+        top: -10px;
+        border-radius: 26px;
+        background-image: linear-gradient(39deg, #{$color1}, #{$color2});
+        transition: all .3s ease-in-out;
+        opacity: 0;
+      }
 
-    &:nth-child(#{$i}n + #{$i}) .coloredOutline {
-      width: calc(100% + 6px + 14px);
-      height: calc(100% + 6px + 14px);
-      position: absolute;
-      left: -10px;
-      top: -10px;
-      border-radius: 26px;
-      background-image: linear-gradient(39deg, #{$color1}, #{$color2});
-      transition: all .3s ease-in-out;
-      opacity: 0;
-    }
-
-    &:nth-child(#{$i}n + #{$i}) .coloredOutline:before {
-      content: '';
-      width: calc(100% - 6px);
-      height: calc(100% - 6px);
-      position: absolute;
-      left: 3px;
-      top: 3px;
-      border-radius: 25px;
-      background: #1c1e32;
-      visibility: hidden;
-      transition: all .3s ease-in-out;
-    }
+      &:nth-child(#{$i}n + #{$i}) .coloredOutline:before {
+        content: '';
+        width: calc(100% - 6px);
+        height: calc(100% - 6px);
+        position: absolute;
+        left: 3px;
+        top: 3px;
+        border-radius: 25px;
+        background: #1c1e32;
+        visibility: hidden;
+        transition: all .3s ease-in-out;
+      }
 
 
-    &:hover .coloredOutline,
-    &:hover .coloredOutline:before,
-    &:hover .coloredShadow {
-      visibility: visible;
-      opacity: .7;
-    }
+      &:hover .coloredOutline,
+      &:hover .coloredOutline:before,
+      &:hover .coloredShadow {
+        visibility: visible;
+        opacity: .7;
+      }
 
-    &:hover .episodeCard,
-    &:hover .coloredOutline {
-      transform: translateY(-10px);
+      &:hover .episodeCard,
+      &:hover .coloredOutline {
+        transform: translateY(-10px);
+      }
     }
 
     &:nth-child(#{$i}n + #{$i}) .episodeCard {
@@ -416,9 +418,15 @@ $gradients : (
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 70px;
+  height: $player-height;
   background: #272c3f;
   z-index: 99;
+  display: flex;
+  align-items: center;
+
+  .container {
+    padding: 0;
+  }
 }
 
 // Circle Media Player
@@ -501,9 +509,12 @@ $gradients : (
 .media-controls {
   display: flex;
   align-items: center;
-  padding: 12px;
+  // padding: 12px;
   background-color: transparent;
   color: #fff;
+  svg {
+    min-width: 30px;
+  }
 
   svg, path, polygon {
     transform-origin: 50% 50%;
