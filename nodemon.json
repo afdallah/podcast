@@ -1,0 +1,10 @@
+{
+  "watch": [
+    "./server/index.js",
+    "next.config.js",
+    "server"
+  ],
+  "execMap": {
+    "js": "node"
+  }
+}

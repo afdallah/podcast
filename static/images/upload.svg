@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="377px" height="342px" viewBox="0 0 377 342" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-160.3%" y="-125.7%" width="420.5%" height="416.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="24" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="35" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.141219429 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-2" x="0" y="0" width="73" height="74" rx="16"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Publish-page" transform="translate(-140.000000, -226.000000)">
+            <g id="Group-7" transform="translate(140.000000, 226.000000)">
+                <rect id="Rectangle-2" fill="#303754" x="0" y="0" width="377" height="342" rx="20"></rect>
+                <path d="M36,14 L342,14 C353.045695,14 362,22.954305 362,34 L362,308 C362,319.045695 353.045695,328 342,328 L36,328 C24.954305,328 16,319.045695 16,308 L16,34 C16,22.954305 24.954305,14 36,14 Z" id="Rectangle-2" stroke-opacity="0.627774004" stroke="#D8DBEC" stroke-width="2" fill="#303754" stroke-dasharray="10"></path>
+                <text id="Drag-or-click-to-add" font-family="HKGrotesk-Bold, HK Grotesk" font-size="19" font-weight="bold" fill="#D8DBEC">
+                    <tspan x="74" y="290" fill-opacity="0.780372509">Drag or click to</tspan>
+                    <tspan x="203.295" y="290">  add image</tspan>
+                </text>
+                <path d="" id="Path-2" stroke="#979797"></path>
+                <g id="Path-3" filter="url(#filter-1)" transform="translate(151.000000, 139.000000)">
+                    <g id="Group-2">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="Mask" fill="#454D6E" xlink:href="#path-2"></use>
+                        <polygon id="Path-3" fill="#D8D8D8" mask="url(#mask-3)" points="72.3482856 32.196358 47.7140942 23.8809352 25.9619598 45.3268761 9.59519304 37.3696363 -2.95945946 48.3960971 -2.95945946 83.7103703 76.2814193 76.8662861 76.2814193 53.7956527"></polygon>
+                        <ellipse id="Oval" fill="#D8D8D8" mask="url(#mask-3)" cx="22.1959459" cy="23.5" rx="9.37162162" ry="9.5"></ellipse>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(211.000000, 126.000000)" fill="#B0B7D3">
+                    <rect id="Rectangle-3" x="11" y="0" width="5" height="27" rx="2.5"></rect>
+                    <rect id="Rectangle-3" transform="translate(13.500000, 13.500000) rotate(-270.000000) translate(-13.500000, -13.500000) " x="11" y="0" width="5" height="27" rx="2.5"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
