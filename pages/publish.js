@@ -157,7 +157,7 @@ class Publish extends React.Component {
           onSubmit={this.handleSubmit}
         >
           <Flex>
-            <Flex.Item span="5">
+            <Flex.Item span="3">
               <div className={css.form__item}>
                 <label
                   className={[css.label, css["label--file"]].join(" ")}
@@ -213,7 +213,7 @@ class Publish extends React.Component {
                 {/* <label htmlFor="podcast-slug">Slug</label> */}
                 <Editable
                   name="slug"
-                  passive="http://ngobrol.im/"
+                  passive="http://ngobrol.im/episode"
                   id="slug"
                   html={this.state.form.slug}
                   onChange={this.handleEditable}
@@ -251,7 +251,7 @@ class Publish extends React.Component {
                 </div>
               </div>
 
-              <div className={css.form__item}>
+              {/* <div className={css.form__item}>
                 <label className={css.label} htmlFor="podcast-guest">
                   Guest
                 </label>
@@ -262,7 +262,7 @@ class Publish extends React.Component {
                     </Option>
                   ))}
                 </Select>
-              </div>
+              </div> */}
 
               <button
                 type="submit"

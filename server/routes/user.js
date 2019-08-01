@@ -34,10 +34,13 @@ router.post('/', upload.single('photo'), (req, res, next) => {
     .catch(e => next(e))
 })
 
-router.put('/:id', (req, res, next) => {
-  User.findByIdAndUpdate(req.params.id, { $set: req.body }, (err, user) => {
-    if (err) next(err)
-    res.send('User updated')
+router.put('/:id', upload.single('photo'), (req, res, next) => {
+  User.findByIdAndUpdate(
+    req.params.id,
+    { $set: {...req.body, photo: { url: req.file.url, secure_url: req.file.secure_url }} },
+    (err, user) => {
+      if (err) next(err)
+      res.send('User updated')
   })
 })
 

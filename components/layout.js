@@ -20,8 +20,8 @@ export default ({ children }) => (
             <li className={css.menu__item}>
               <Link href="/"><a>Home</a></Link>
             </li>
-            <li className={css.menu__item}><a>Events</a></li>
-            <li className={css.menu__item}><a>Merch</a></li>
+            {/* <li className={css.menu__item}><a>Events</a></li>
+            <li className={css.menu__item}><a>Merch</a></li> */}
             <li className={css.menu__item}>
               <Link href="/publish"><a>Publish</a></Link>
             </li>

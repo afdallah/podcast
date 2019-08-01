@@ -27,7 +27,7 @@ router.post('/', upload.single('image'), (req, res, next) => {
     published: req.body.published,
     audio: req.body.audio,
     host: req.body.host,
-    guest: req.body.guest,
+    // guest: req.body.guest,
     content: req.body.content,
     tags: req.body.tags,
     image: {
@@ -39,7 +39,10 @@ router.post('/', upload.single('image'), (req, res, next) => {
 
   episode.save()
     .then(saved => res.json(saved))
-    .catch(e => next(e))
+    .catch(e => {
+      res.status(500).json(e)
+      next()
+    })
 })
 
 router.put('/:id', upload.single('image'), (req, res, next) => {

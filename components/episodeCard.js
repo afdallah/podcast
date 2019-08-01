@@ -35,7 +35,7 @@ export default (props) => {
             </div>
 
             <div className={css.episodeSpeakerPhoto}>
-              <img className={css.image} src={props.host.photo} />
+              <img className={css.image} src={props.host.photo.url} />
             </div>
           </div>
         </div>

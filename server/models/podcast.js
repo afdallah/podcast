@@ -10,10 +10,10 @@ const schema = new Schema({
   audio: { type: String, trim: true },
   host: { type: Schema.Types.ObjectId, ref: 'User' },
   guest: { type: Schema.Types.ObjectId, ref: 'User' },
-  content: { type: String, required: true},
+  content: { type: String },
   tags: [String],
   image: Object,
-  slug: { type: String, required: true }
+  slug: { type: String }
 })
 
 // schema
