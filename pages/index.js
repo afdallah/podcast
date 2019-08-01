@@ -19,9 +19,12 @@ const Index = (props) => {
     <Layout>
       <h1 className={`${css.heading} ${css.headingXl}`}>Podcasts</h1>
       <Flex>
-        {props.episodes.map((episode, index) => {
-          return <EpisodeCard key={episode._id} {...episode} index={index} />
-        })}
+        {props.episodes
+          .sort((a, b) => new Date(b.created) - new Date(a.created))
+          .map((episode, index) => {
+            return <EpisodeCard key={episode._id} {...episode} index={index} />
+          })
+        }
       </Flex>
     </Layout>
   )

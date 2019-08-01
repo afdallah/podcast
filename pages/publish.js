@@ -213,7 +213,7 @@ class Publish extends React.Component {
                 {/* <label htmlFor="podcast-slug">Slug</label> */}
                 <Editable
                   name="slug"
-                  passive="http://ngobrol.im/episode"
+                  passive="http://ngobrol.im/episode/"
                   id="slug"
                   html={this.state.form.slug}
                   onChange={this.handleEditable}
