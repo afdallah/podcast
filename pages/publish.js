@@ -146,7 +146,6 @@ class Publish extends React.Component {
   };
 
   render() {
-    // const guests = this.props.guests.length <= 0 ? defaultOptions : this.props.guests
     return (
       <Layout>
         <h1 className={`${css.heading} ${css.headingXl}`}> Tell a story... </h1>
@@ -270,13 +269,12 @@ class Publish extends React.Component {
                 className={[css.button, css["button--submit"]].join(" ")}
                 disabled={this.state.isFetching}
               >
-                {this.state.isFetching ? (
+                {this.state.isFetching ?
                   <FaSpinner
-                    className={this.state.isFetching ? "spinning" : ""}
-                  />
-                ) : (
-                  ""
-                )}
+                    className={css.spinning}
+                  /> :
+                  ''
+                }
                 Broadcast Now!
               </button>
             </Flex.Item>

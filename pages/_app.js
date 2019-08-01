@@ -9,16 +9,11 @@ import 'normalize.css'
 class MyApp extends App {
   render () {
     const { Component, pageProps, store } = this.props
-    let base_url
-    if (process.browser) {
-      base_url = {
-        origin: window.location.origin
-      }
-    }
+
     return (
       <Container>
         <Provider store={store}>
-          <Component {...pageProps} {...base_url} />
+          <Component {...pageProps} />
         </Provider>
       </Container>
     )

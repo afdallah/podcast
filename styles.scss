@@ -36,7 +36,7 @@ $player-height: 45px;
 
 .heading {
   margin-bottom: .8em;
-  font-weight: 600;
+  font-weight: bold;
 
   &Xl {
     font-size: 60px;
@@ -68,7 +68,7 @@ $player-height: 45px;
   padding: 0;
   display: inline-flex;
   list-style: none;
-  font-weight: 600;
+  font-weight: bold;
 
   &__item {
     padding: 0 20px;
@@ -726,4 +726,14 @@ input[type="range"] {
   &.is-active {
     color: #8bb955
   }
+}
+
+.spinning {
+  animation: spin linear .2s infinite;
+  font-size: 13px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
 }
