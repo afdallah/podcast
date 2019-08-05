@@ -35,7 +35,7 @@ class Publish extends React.Component {
       title: "",
       published: true,
       audio: "",
-      host: "5d41ae787db2a2a299b4513c",
+      host: "5d47b83f442028080b1d89cc",
       guest: "",
       content: "",
       tags: [],

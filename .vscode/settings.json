@@ -3,5 +3,6 @@
     "./next/**/*": true,
     ".next": true,
     "**/.next": true
-  }
+  },
+  "eslint.enable": false
 }
