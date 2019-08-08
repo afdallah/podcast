@@ -16,7 +16,7 @@ const Index = (props) => {
   // }
 
   return  (
-    <Layout>
+    <>
       <h1 className={`${css.heading} ${css.headingXl}`}>Podcasts</h1>
       <Flex>
         {props.episodes
@@ -26,7 +26,7 @@ const Index = (props) => {
           })
         }
       </Flex>
-    </Layout>
+    </>
   )
 }
 

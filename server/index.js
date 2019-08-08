@@ -9,10 +9,10 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
+const GoogleStrategy = require('passport-google-oauth20').Strategy
 const cookieSession = require('cookie-session')
-const User = require('./models/user')
 
+const User = require('./models/user')
 const episodeRoutes = require('./routes/episode')
 const userRoutes = require('./routes/user')
 const publishRoutes = require('./routes/publish')
@@ -27,8 +27,6 @@ const db = mongoose.connect(dbstring, {
   useFindAndModify: false,
   useCreateIndex: true,
 })
-
-mongoose.set('debug', true)
 
 app.prepare().then(() => {
   const server = express()
@@ -68,6 +66,7 @@ app.prepare().then(() => {
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callback: `${process.env.HOST}:${process.env.PORT}/auth/facebook/callback`,
+    passReqToCallback   : true,
     profileFields: ['id', 'displayName', 'photos', 'email', 'gender', 'work']
   }, function (accessToken, refreshToken, profile, cb) {
     User.findOrCreate({ facebookId: profile.id }, function (err, user) {
@@ -85,13 +84,14 @@ app.prepare().then(() => {
   )
 
   passport.serializeUser(function (user, cb) {
-    cb(null, user.id)
+    cb(null, user)
   })
 
-  passport.deserializeUser(function (id, cb) {
-    User.findById(id).then(user => {
-      cb(null, user)
-    })
+  passport.deserializeUser(function (user, cb) {
+    // User.findById(id).then(user => {
+    //   cb(null, user)
+    // })
+    cb(null, user)
   })
 
   passport.use(new GoogleStrategy({
@@ -130,11 +130,16 @@ app.prepare().then(() => {
   server.get('/auth/google',
     passport.authenticate('google', { scope: ['profile', 'email', 'openid'] }));
 
-  server.get('/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/login' }),
-    function(req, res) {
-      res.redirect('/');
-    });
+  server.get('/auth/google/callback', (req, res, next) => {
+    passport.authenticate('google', (err, user) => {
+      if (err) return next(err)
+      if (!user) return res.redirect('/auth/google')
+      req.logIn(user, (err) => {
+        if (err) return next(err);
+        res.redirect("/");
+      })
+    })(req, res, next);
+  });
 
 
   server.get('*', (req, res) => {

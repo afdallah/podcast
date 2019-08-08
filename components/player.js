@@ -30,6 +30,7 @@ class AudioPlayer extends React.Component {
         {mediaProps => (
           <div
             onKeyDown={keyboardControls.bind(null, mediaProps)}
+            className={css['media-wrapper']}
           >
             <Player
               ref={c => (this._player = c)}

@@ -35,7 +35,7 @@ class Publish extends React.Component {
       title: "",
       published: true,
       audio: "",
-      host: "5d47b83f442028080b1d89cc",
+      host: "",
       guest: "",
       content: "",
       tags: [],
@@ -51,6 +51,14 @@ class Publish extends React.Component {
     return {
       guests
     };
+  }
+
+  componentDidMount () {
+    this.setState({
+      form: Object.assign({}, this.state.form, {
+        host: this.props.user._id
+      })
+    })
   }
 
   handleChange = event => {
@@ -95,11 +103,11 @@ class Publish extends React.Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const { form } = this.state;
+    const { form } = this.state;;
     const formData = new FormData();
 
     for (const key in Object.assign({}, form, {
-      published: true
+      published: true,
     })) {
       if (form.hasOwnProperty(key)) {
         const element = form[key];
@@ -147,7 +155,7 @@ class Publish extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <>
         <h1 className={`${css.heading} ${css.headingXl}`}> Tell a story... </h1>
         <form
           className="form"
@@ -247,6 +255,7 @@ class Publish extends React.Component {
                     theme={dark}
                     onChange={this.handleEditor}
                     required
+                    spellCheck={false}
                   />
                 </div>
               </div>
@@ -280,7 +289,7 @@ class Publish extends React.Component {
             </Flex.Item>
           </Flex>
         </form>
-      </Layout>
+      </>
     );
   }
 }
