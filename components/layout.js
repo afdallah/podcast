@@ -28,7 +28,11 @@ export default ({ children }) => (
           </ul>
 
           <ul className={css.menu}>
-            <li className="menu__item"><a>Iqbal Maulana</a></li>
+            <li className="menu__item">
+              <Link href="/auth/google">
+                <a>Sign in Google</a>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

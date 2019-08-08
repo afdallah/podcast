@@ -9,6 +9,8 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy
+const cookieSession = require('cookie-session')
 const User = require('./models/user')
 
 const episodeRoutes = require('./routes/episode')
@@ -30,6 +32,14 @@ mongoose.set('debug', true)
 
 app.prepare().then(() => {
   const server = express()
+
+  server.use(cookieSession({
+    maxAge: 1000 * 60 * 60 * 24 * 30,
+    keys: ['asuperstrongpodcastkey']
+  }))
+
+  server.use(passport.initialize())
+  server.use(passport.session())
 
   // Middleware to parse form data
   server.use(bodyParser.json())
@@ -53,7 +63,6 @@ app.prepare().then(() => {
     return app.render(req, res, '/publish', req.query);
   });
 
-  console.log(`${process.env.HOST}:${process.env.PORT}/auth/facebook/callback`)
   // Setup facebook auth
   passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
@@ -76,12 +85,56 @@ app.prepare().then(() => {
   )
 
   passport.serializeUser(function (user, cb) {
-    cb(null, user)
+    cb(null, user.id)
   })
 
-  passport.deserializeUser(function (obj, cb) {
-    cb(null, obj)
+  passport.deserializeUser(function (id, cb) {
+    User.findById(id).then(user => {
+      cb(null, user)
+    })
   })
+
+  passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CONSUMER_KEY,
+    clientSecret: process.env.GOOGLE_CONSUMER_SECRET,
+    callbackURL: `/auth/google/callback`
+  },
+    function(token, tokenSecret, profile, done) {
+      User.findOne({ googleId: profile.id })
+        .then(currentUser => {
+          if (currentUser) {
+            console.log('User EXIST', currentUser)
+            done(null, currentUser)
+          } else {
+            new User({
+              googleId: profile.id,
+              displayName: profile.displayName,
+              firstName: profile.name.givenName,
+              lastName: profile.name.familyName,
+              email: profile._json.email,
+              photo: {
+                url: profile._json.picture,
+                secure_url: profile._json.picture,
+              }
+            })
+              .save()
+              .then(newUser => {
+                console.log('New user created', newUser)
+                done(null, newUser)
+              })
+          }
+      })
+    }
+  ))
+
+  server.get('/auth/google',
+    passport.authenticate('google', { scope: ['profile', 'email', 'openid'] }));
+
+  server.get('/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
+      res.redirect('/');
+    });
 
 
   server.get('*', (req, res) => {

@@ -6,10 +6,13 @@ const mongooseUniqueValidator = require('mongoose-unique-validator')
 const schema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
+  username: String,
+  displayName: String,
+  googleId: String,
   photo: { type: Object },
   email: { type: String, required: true, unique: true },
-  level: { type: Number, required: true, default: 1 }, // 1: Superadmin, 2: regular
-  isGuest: { type: Boolean, required: true, default: false },
+  level: { type: Number, default: 1 }, // 1: Superadmin, 2: regular
+  isGuest: { type: Boolean, default: false },
   podcasts: [{ type: Schema.Types.ObjectId, ref: 'Podcast' }]
 })
 
