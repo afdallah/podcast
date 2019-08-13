@@ -112,14 +112,3 @@ export const classNames = (object = {}) => {
 
   return classes.join(' ')
 }
-const resolveHost = function () {
-  if (process.env.NODE_ENV !== 'production') {
-    return process.env.DEV_HOST
-  }
-
-  return process.env.PROD_HOST
-}
-
-module.exports = {
-  resolveHost: resolveHost
-}
