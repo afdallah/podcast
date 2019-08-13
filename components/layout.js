@@ -38,13 +38,28 @@ export default ({ children, user, title }) => (
               </li>
             ) : (
               <>
-                <li className={css.menu__item}>
-                  <Link href="/publish"><a><FaTelegramPlane />Publish</a></Link>
-                </li>
-                <li className="menu__item">
-                  <span>
+                {(user.level < 2) && (
+                  <li className={css.menu__item}>
+                    <Link href="/publish"><a><FaTelegramPlane />Publish</a></Link>
+                  </li>
+                )}
+                <li className={[css['menu__item'], css['dropdown']].join(' ')}>
+                  <a>
                     {user.displayName}
-                  </span>
+                  </a>
+
+                  <ul className={css['dropdown-menu']}>
+                    <li>
+                      <Link href="/profile">
+                        <a>Profile</a>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/logout">
+                        <a>Logout</a>
+                      </Link>
+                    </li>
+                  </ul>
                 </li>
               </>
             )}

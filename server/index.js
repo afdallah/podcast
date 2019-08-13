@@ -44,24 +44,6 @@ app.prepare().then(() => {
   server.use(bodyParser.json())
   server.use(bodyParser.urlencoded({ extended: true }));
 
-  // Route for api
-  server.use('/api/episode', episodeRoutes)
-  server.use('/api/user', userRoutes)
-  server.use('/api/publish', publishRoutes)
-
-  // SSR routing
-  server.get('/episode/:id', (req, res) => {
-    return app.render(req, res, '/episode', { id: req.params.id });
-  });
-
-  server.get('/', (req, res) => {
-    return app.render(req, res, '/', req.query);
-  });
-
-  server.get('/publish', (req, res) => {
-    return app.render(req, res, '/publish', req.query);
-  });
-
   // Setup facebook auth
   passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
@@ -109,7 +91,7 @@ app.prepare().then(() => {
       User.findOne({ googleId: profile.id })
         .then(currentUser => {
           if (currentUser) {
-            console.log('User EXIST', currentUser)
+            // console.log('User EXIST', currentUser)
             done(null, currentUser)
           } else {
             new User({
@@ -147,6 +129,33 @@ app.prepare().then(() => {
     })(req, res, next);
   });
 
+
+
+
+  // Route for api
+  server.use('/api/episode', episodeRoutes)
+  server.use('/api/user', userRoutes)
+  server.use('/api/publish', publishRoutes)
+
+  // SSR routing
+  server.get('/episode/:id', (req, res) => {
+    return app.render(req, res, '/episode', { id: req.params.id });
+  });
+
+  server.get('/', (req, res) => {
+    return app.render(req, res, '/', req.query);
+  });
+
+  server.get('/publish', (req, res) => {
+    return app.render(req, res, '/publish', req.query);
+  });
+
+  const restrictAccess = function (req, res, next) {
+    if (!req.isAuthenticated()) return res.redirect('/auth/google')
+    next()
+  }
+
+  server.use('/profile', restrictAccess)
 
   server.get('*', (req, res) => {
     return handle(req, res)
