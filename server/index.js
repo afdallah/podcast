@@ -16,6 +16,7 @@ const User = require('./models/user')
 const episodeRoutes = require('./routes/episode')
 const userRoutes = require('./routes/user')
 const publishRoutes = require('./routes/publish')
+const resolveHost = require('./utils').resolveHost
 
 const dbstring = dev ?
   'mongodb://localhost:27017/ngobrolim' :
@@ -65,7 +66,7 @@ app.prepare().then(() => {
   passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callback: `${process.env.HOST}:${process.env.PORT}/auth/facebook/callback`,
+    callback: `${resolveHost()}/auth/facebook/callback`,
     passReqToCallback   : true,
     profileFields: ['id', 'displayName', 'photos', 'email', 'gender', 'work']
   }, function (accessToken, refreshToken, profile, cb) {
@@ -82,6 +83,11 @@ app.prepare().then(() => {
       res.redirect('/')
     }
   )
+
+  server.get('/logout', (req, res) => {
+    req.logout()
+    res.redirect('/'); //Inside a callback… bulletproof!
+  })
 
   passport.serializeUser(function (user, cb) {
     cb(null, user)
@@ -148,6 +154,6 @@ app.prepare().then(() => {
 
   server.listen(port, (err) => {
     if (err) throw err
-    console.log(`> Server start ${process.env.HOST}:${port}`)
+    console.log(`> Server start ${resolveHost()}`)
   })
 })

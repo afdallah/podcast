@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-
 const initState = {
     nowPlaying: 'http://podsummit.com/wp-content/uploads/2017/03/In-Suspense.mp3'
 }

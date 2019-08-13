@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 import 'normalize.css'
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
+  static async getInitialProps({ Component, ctx, ...props }) {
     let pageProps = {};
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
@@ -16,6 +16,7 @@ class MyApp extends App {
     if (ctx.req && ctx.req.session.passport) {
       pageProps.user = ctx.req.session.passport.user;
     }
+
     return { pageProps };
   }
 

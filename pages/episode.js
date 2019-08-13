@@ -22,7 +22,7 @@ const Episode = (props) => {
   )
 }
 
-Episode.getInitialProps = async ({ store, isServer, pathname, query }) => {
+Episode.getInitialProps = async ({ req, store, isServer, pathname, query, ...props}) => {
   const res = await fetch(`${server}/api/episode/${query.id}`)
   const data = await res.json();
   store.dispatch({ type: 'CHANGE_PODCAST', payload: data.audio })
