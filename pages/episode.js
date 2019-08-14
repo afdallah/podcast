@@ -8,7 +8,7 @@ const Editor = dynamic(() => import("rich-markdown-editor"), {
 });
 
 import { dark } from "../helpers";
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import { server } from '../config'
 
 const Episode = (props) => {
