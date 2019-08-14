@@ -12,7 +12,6 @@ const schema = new Schema({
   photo: { type: Object },
   email: { type: String, required: true, unique: true },
   level: { type: Number, default: 2 }, // 1: Superadmin, 2: regular
-  isGuest: { type: Boolean, default: false },
   podcasts: [{ type: Schema.Types.ObjectId, ref: 'Podcast' }]
 })
 

@@ -35,13 +35,29 @@ router.post('/', upload.single('photo'), (req, res, next) => {
 })
 
 router.put('/:id', upload.single('photo'), (req, res, next) => {
-  User.findByIdAndUpdate(
-    req.params.id,
-    { $set: {...req.body, photo: { url: req.file.url, secure_url: req.file.secure_url }} },
-    (err, user) => {
-      if (err) next(err)
-      res.send('User updated')
-  })
+  if (req.file) {
+    User.findByIdAndUpdate(
+      req.params.id,
+      { $set: {...req.body, photo: { url: req.file.url, secure_url: req.file.secure_url }} },
+      (err, user) => {
+        if (err) next(err)
+        res.json({
+          status: 'Update success',
+          user
+        })
+    })
+  } else {
+    User.findByIdAndUpdate(
+      req.params.id,
+      { $set: {...req.body}},
+      (err, user) => {
+        if (err) next(err)
+        res.json({
+          status: 'Update success',
+          user
+        })
+    })
+  }
 })
 
 router.delete('/:id', (req, res, next) => {

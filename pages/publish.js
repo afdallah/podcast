@@ -12,7 +12,6 @@ const Editor = dynamic(() => import("rich-markdown-editor"), {
   ssr: false
 });
 
-import Layout from "../components/layout";
 import Flex from "../components/flex";
 import Editable from "../components/editable";
 import Select, { Option } from "../components/select";

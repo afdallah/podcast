@@ -5,7 +5,7 @@ export default ({ children, ...props }) => {
   const { span } = props
 
   const classes = classNames({
-    [css.flexItem]: true,
+    [css.flex__item]: true,
     [css[`is-${span}`]]: span
   })
 

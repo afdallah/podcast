@@ -72,14 +72,13 @@ app.prepare().then(() => {
   })
 
   passport.serializeUser(function (user, cb) {
-    cb(null, user)
+    cb(null, user.id)
   })
 
-  passport.deserializeUser(function (user, cb) {
-    // User.findById(id).then(user => {
-    //   cb(null, user)
-    // })
-    cb(null, user)
+  passport.deserializeUser(function (id, cb) {
+    User.findById(id, function(err, user) {
+      cb(err, user);
+    });
   })
 
   passport.use(new GoogleStrategy({
@@ -128,9 +127,6 @@ app.prepare().then(() => {
       })
     })(req, res, next);
   });
-
-
-
 
   // Route for api
   server.use('/api/episode', episodeRoutes)

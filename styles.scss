@@ -205,13 +205,20 @@ $nav-height: 50px;
 }
 
 .flex {
+  $parent: &;
   display: flex;
-  margin-left: -20px;
-  margin-right: -20px;
+  margin-left: -7.5px;
+  margin-right: -7.5px;
   flex-wrap: wrap;
+
+  &--gap-narrow {
+    #{$parent}__item {
+      margin: 0 7.5px;
+    }
+  }
 }
 
-.flexItem {
+.flex__item {
   margin: 0 20px;
   width: 100%;
 
@@ -409,6 +416,10 @@ $gradients : (
 .form {
   &__item {
     margin-bottom: 30px;
+
+    &--half {
+      width: calc((100% - 20px) / 2)
+    }
   }
 }
 
