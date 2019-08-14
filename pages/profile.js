@@ -12,6 +12,7 @@ import css from "../styles.scss";
 class profile extends React.Component {
   state = {
     isFetching: false,
+    isDisabled: this,
     imagePreview: null,
     form: {
       firstName: "",
@@ -45,7 +46,8 @@ class profile extends React.Component {
 
       reader.onloadend = function(event) {
         this.setState({
-          imagePreview: reader.result
+          imagePreview: reader.result,
+          isDisabled: false
         });
       }.bind(this);
 
@@ -53,7 +55,8 @@ class profile extends React.Component {
     }
 
     this.setState({
-      form: Object.assign({}, this.state.form, { [name]: value })
+      form: Object.assign({}, this.state.form, { [name]: value }),
+      isDisabled: false
     });
   }
 
@@ -86,7 +89,8 @@ class profile extends React.Component {
         this.setState({ isFetching: false });
       }, 300)
 
-      Router.push("/profile");
+      window.location = '/profile'
+      // Router.push("/");
     } catch (err) {
       console.log(err);
     }
@@ -200,7 +204,7 @@ class profile extends React.Component {
               <button
                 type="submit"
                 className={[css.button, css["button--submit"]].join(" ")}
-                // disabled={this.state.isFetching}
+                disabled={this.state.isDisabled && !this.state.isFetching}
               >
                 {this.state.isFetching ?
                   <FaSpinner

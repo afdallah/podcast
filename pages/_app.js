@@ -14,7 +14,6 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
     if (ctx.req && ctx.req.session.passport) {
-      console.log(ctx.req)
       pageProps.user = ctx.req.user;
     }
 

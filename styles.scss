@@ -207,11 +207,14 @@ $nav-height: 50px;
 .flex {
   $parent: &;
   display: flex;
-  margin-left: -7.5px;
-  margin-right: -7.5px;
+  margin-left: -20px;
+  margin-right: -20px;
   flex-wrap: wrap;
 
   &--gap-narrow {
+    margin-left: -7.5px;
+    margin-right: -7.5px;
+
     #{$parent}__item {
       margin: 0 7.5px;
     }
@@ -538,6 +541,12 @@ $gradients : (
   vertical-align: middle;
   border: 2px solid rgba($light-purple, .8);
   text-align: center;
+
+  &[disabled] {
+    background: #24273c;
+    color: #a9a9a9;
+    cursor: not-allowed;
+  }
 
   svg {
     margin-right: 5px;
