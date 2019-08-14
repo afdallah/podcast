@@ -568,6 +568,56 @@ $gradients : (
     color: #fff;
   }
 
+  &--float {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    border-color: #2fcaab;
+    background: #2fcaab;
+    color: #fff;
+    border-radius: 50px;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,.3);
+    transition: width .3s ease;
+    width: 100px;
+    max-height: 44px;
+
+    span {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      transform: translate(-100%, 0);
+      clip: rect(0,0,0,0);
+      transition: transform 1s ease
+    }
+
+    &:hover {
+      width: 230px;
+    }
+
+    &:hover span {
+      visibility: visible;
+      transform: translate(0, 0);
+      opacity: 1;
+      transition: opacity .1s ease .35s;
+      position: relative;
+      clip: initial
+    }
+
+    &:after {
+      position: absolute;
+      bottom: -60%;
+      left: 50%;
+      transform: translateX(-50%);
+      content: '';
+      width: 80%;
+      height: 100%;
+      background: #2fcaab;
+      filter: blur(45px);
+    }
+  }
+
+  // sizing
   &--xs {
     border-radius: 7px;
     color: #8B6FF3;
