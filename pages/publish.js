@@ -12,9 +12,9 @@ const Editor = dynamic(() => import("rich-markdown-editor"), {
   ssr: false
 });
 
-import Flex from "../components/flex";
-import Editable from "../components/editable";
-import Select, { Option } from "../components/select";
+import Flex from "../components/Flex";
+import Editable from "../components/Editable";
+import Select, { Option } from "../components/Select";
 
 import css from "../styles.scss";
 import { dark } from "../helpers";

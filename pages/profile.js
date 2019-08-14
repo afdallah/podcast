@@ -4,8 +4,8 @@ import Router from "next/router";
 import { FaSpinner } from "react-icons/fa";
 import { server } from '../config'
 
-import Layout from "../components/layout";
-import Flex from "../components/flex";
+import Layout from "../components/Layout";
+import Flex from "../components/Flex";
 
 import css from "../styles.scss";
 

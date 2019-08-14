@@ -3,9 +3,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import {server} from '../config'
-import Layout from '../components/layout'
-import EpisodeCard from '../components/episodeCard'
-import Flex from '../components/flex'
+import Layout from '../components/Layout'
+import EpisodeCard from '../components/EpisodeCard'
+import Flex from '../components/Flex'
 
 import css from '../styles.scss'
 
