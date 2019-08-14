@@ -1,5 +1,5 @@
 import css from '../styles.scss'
-import Option from './option'
+import Option from './Option'
 import { classNames } from '../helpers'
 
 const emptyPlacholder = [{
