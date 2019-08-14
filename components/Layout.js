@@ -5,7 +5,7 @@ import css from '../styles.scss'
 import { FaGoogle, FaTelegramPlane } from 'react-icons/fa'
 
 import dynamic from "next/dynamic";
-const Player = dynamic(() => import('./player'), {
+const Player = dynamic(() => import('./Player'), {
   ssr: false
 });
 
