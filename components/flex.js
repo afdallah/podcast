@@ -1,5 +1,5 @@
 import css from '../styles.scss'
-import flexItem from './flexItem'
+import flexItem from './FlexItem'
 
 const Flex = ({ children }) => (
   <div className={css.flex}>{children}</div>

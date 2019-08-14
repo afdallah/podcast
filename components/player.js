@@ -4,8 +4,8 @@ import { FiPlay } from 'react-icons/fa'
 import { Media, Player, controls, utils } from 'react-media-player'
 import { connect } from 'react-redux'
 
-import PlayPause from './playPause'
-import MuteUnmute from './muteUnmute'
+import PlayPause from './PlayPause'
+import MuteUnmute from './MuteUnmute'
 
 
 const {

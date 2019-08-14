@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
-import Container from './container'
+import Container from './Container'
 import css from '../styles.scss'
 import { FaGoogle, FaTelegramPlane } from 'react-icons/fa'
 

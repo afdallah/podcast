@@ -80,10 +80,14 @@ $nav-height: 50px;
 
   &__item {
     position: relative;
-    padding: 0 20px;
     display: flex;
     align-items: center;
     height: 100%;
+    padding: 0 10px;
+
+    @media screen and (min-width: 480px) {
+      padding: 0 20px;
+    }
 
     &:first-of-type {
       padding-left: 0;
