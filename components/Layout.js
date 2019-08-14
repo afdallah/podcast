@@ -48,7 +48,7 @@ export default ({ children, user, title }) => (
                     <span className={css.avatar}>
                       <img src={user.photo.url} alt=""/>
                     </span>
-                    {user.displayName}
+                    {user.firstName}
                   </a>
 
                   <ul className={css['dropdown-menu']}>
