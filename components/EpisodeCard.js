@@ -26,7 +26,6 @@ export default (props) => {
             <h6 className={css.episodeSpeakerWork} > CEO Advertisa</h6>
           </div>
 
-
           <div className={css.episodeFooter}>
             <div className={css.playButton}>
               <a className="btn btn-primary">
