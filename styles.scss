@@ -31,9 +31,15 @@ $nav-height: 50px;
   text-decoration: none;
 }
 
+img,
 .image {
   max-width: 100%;
   height: auto;
+}
+
+hr {
+  margin: 2em 0;
+  border: 1px solid rgba($light-grey, .5);
 }
 
 .heading {
@@ -536,8 +542,7 @@ $gradients : (
   font-weight: 600;
   cursor: pointer;
   display: inline-block;
-  height: 40px;
-  line-height: 38px;
+  line-height: 40px;
   vertical-align: middle;
   border: 2px solid rgba($light-purple, .8);
   text-align: center;
@@ -557,10 +562,24 @@ $gradients : (
 
   &--submit {
     margin-bottom: 30px;
-    height: 52px;
+    line-height: 52px;
     background-image: linear-gradient(25deg, #cb86de, #673eba);
     border: none;
     color: #fff;
+  }
+
+  &--xs {
+    border-radius: 7px;
+    color: #8B6FF3;
+    height: initial;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 12px;
+    display: inline-block;
+    border: 2px solid rgba(139, 111, 243, 0.8);
+    font-size: 14px;
+    padding: 5px 10px;
+    background: transparent;
   }
 }
 
@@ -621,6 +640,16 @@ $gradients : (
       margin: 0 -12px;
     }
   }
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  overflow: hidden;
+  padding: 0!important;
+  border: 2px solid #2fcaab;
+  margin: 0 10px;
 }
 
 // Circle Media Player

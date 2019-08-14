@@ -45,6 +45,9 @@ export default ({ children, user, title }) => (
                 )}
                 <li className={[css['menu__item'], css['dropdown']].join(' ')}>
                   <a>
+                    <span className={css.avatar}>
+                      <img src={user.photo.url} alt=""/>
+                    </span>
                     {user.displayName}
                   </a>
 

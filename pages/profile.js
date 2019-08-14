@@ -200,7 +200,6 @@ class profile extends React.Component {
                   defaultValue={user.email}
                 />
               </div>
-
               <button
                 type="submit"
                 className={[css.button, css["button--submit"]].join(" ")}
@@ -216,6 +215,17 @@ class profile extends React.Component {
               </button>
             </Flex.Item>
           </Flex>
+          {user.level > 1 ? (
+            <>
+              <hr/>
+              <Flex>
+                <Flex.Item>
+                  <span style={{opacity: .8, marginRight: '10px'}}>I want to be a host! </span>
+                  <a onClick={() => alert('coming soon')} className={[css.button, css['button--xs']].join(' ')}>Send request</a>
+                </Flex.Item>
+              </Flex>
+            </>
+          ) : ''}
         </form>
       </>
     )
