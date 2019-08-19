@@ -7,5 +7,5 @@ const resolveHost = function () {
 }
 
 module.exports = {
-  resolveHost: resolveHost
+  resolveHost: resolveHost,
 }

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Episode = require('../models/podcast')
-const { upload } = require('../middleware')
+const { upload, ensureAuthenticated } = require('../middleware')
 
 router.get('/', (req, res, next) => {
   Episode
@@ -21,7 +21,7 @@ router.get('/:id', (req, res, next) => {
   })
 })
 
-router.post('/', upload.single('image'), (req, res, next) => {
+router.post('/', ensureAuthenticated, upload.single('image'), (req, res, next) => {
   const episode = new Episode({
     title: req.body.title,
     published: req.body.published,
@@ -45,14 +45,14 @@ router.post('/', upload.single('image'), (req, res, next) => {
     })
 })
 
-router.put('/:id', upload.single('image'), (req, res, next) => {
+router.put('/:id', ensureAuthenticated, upload.single('image'), (req, res, next) => {
   Episode.findByIdAndUpdate(req.params.id, { $set: req.body }, (err, episode) => {
     if (err) next(err)
     res.send('Episode updated')
   })
 })
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', ensureAuthenticated, (req, res, next) => {
   Episode.findByIdAndRemove(req.params.id, (err) => {
     if (err) next(err)
     res.send('Deleted succesfully')

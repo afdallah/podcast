@@ -17,4 +17,13 @@ const storage = cloudinaryStorage({
 
 const upload = multer({ storage: storage })
 
-exports.upload = upload
+
+const ensureAuthenticated = function (req, res, next) {
+  if (req.isAuthenticated()) return next()
+  res.sendStatus(401)
+}
+
+module.exports = {
+  upload,
+  ensureAuthenticated
+}

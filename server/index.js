@@ -128,12 +128,25 @@ app.prepare().then(() => {
     })(req, res, next);
   });
 
+  const { ensureAuthenticated } = require('./middleware')
+
   // Route for api
   server.use('/api/episode', episodeRoutes)
-  server.use('/api/user', userRoutes)
-  server.use('/api/publish', publishRoutes)
+  server.use('/api/user', ensureAuthenticated, userRoutes)
+  server.use('/api/publish', ensureAuthenticated, publishRoutes)
 
   // SSR routing
+  const restrictAccess = function (req, res, next) {
+    if (!req.isAuthenticated()) return res.redirect('/auth/google')
+    next()
+  }
+
+  const ensureAuthorized = function (req, res, next) {
+    if (req.user.level > 1) next()
+    res.statusCode = 403
+    return app.render(req, res, '/_error')
+  }
+
   server.get('/episode/:id', (req, res) => {
     return app.render(req, res, '/episode', { id: req.params.id });
   });
@@ -142,15 +155,9 @@ app.prepare().then(() => {
     return app.render(req, res, '/', req.query);
   });
 
-  server.get('/publish', (req, res) => {
+  server.get('/publish', restrictAccess, ensureAuthorized, (req, res) => {
     return app.render(req, res, '/publish', req.query);
   });
-
-  const restrictAccess = function (req, res, next) {
-    if (!req.isAuthenticated()) return res.redirect('/auth/google')
-    next()
-  }
-
   server.use('/profile', restrictAccess)
 
   server.get('*', (req, res) => {

@@ -37,7 +37,7 @@ export default ({ children, user, title }) => {
                 <li className="menu__item">
                   <Link href="/auth/google">
                     <a
-                      className={[css['button'], css['button-icon'], css['button-md']].join(' ')}
+                      className={[css['button'], css['button--icon'], css['button--md'], css['button--google']].join(' ')}
                     >
                       <FaGoogle /> Sign In
                     </a>

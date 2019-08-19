@@ -568,6 +568,12 @@ $gradients : (
     color: #fff;
   }
 
+  &--google {
+    background: #4285F4;
+    color: #fff;
+    border-color: #4285F4;
+  }
+
   &--float {
     position: fixed;
     bottom: 70px;
