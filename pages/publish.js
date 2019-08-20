@@ -162,6 +162,7 @@ class Publish extends React.Component {
         </Container>
       )
     }
+
     return (
       <>
         <h1 className={`${css.heading} ${css.headingXl}`}> Tell a story... </h1>

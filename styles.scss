@@ -161,6 +161,10 @@ hr {
   }
 }
 
+.menu__item.menu__item--active a:after {
+  opacity: 1;
+}
+
 .dropdown-menu {
   opacity: 0;
   visibility: hidden;
@@ -596,6 +600,10 @@ $gradients : (
     width: 44px;
     max-height: 44px;
     padding: 0;
+
+    svg {
+      margin-right: 0;
+    }
 
     span {
       visibility: hidden;

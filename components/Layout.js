@@ -3,19 +3,25 @@ import Head from 'next/head'
 import Router from 'next/router'
 import Container from './Container'
 import css from '../styles.scss'
-import { FaGoogle, FaTelegramPlane } from 'react-icons/fa'
+import { FaGoogle, FaMicrophoneAlt } from 'react-icons/fa'
 
 import dynamic from "next/dynamic";
 const Player = dynamic(() => import('./Player'), {
   ssr: false
 });
 
-export default ({ children, user, title }) => {
-  let currentPath
-  if (process.browser) {
-    currentPath = Router.router.asPath
-  }
+const menuArr = [{
+  label: 'Home',
+  url: '/'
+}, {
+  label: 'Merch',
+  url: '/merch'
+}, {
+  label: 'Events',
+  url: '/events'
+}]
 
+export default ({ children, user, title, router }) => {
   return (
     <>
       <Head>
@@ -25,11 +31,14 @@ export default ({ children, user, title }) => {
         <div className={css.navigation}>
           <div className={css.navigation__inner}>
             <ul className={css.menu}>
-              <li className={css.menu__item}>
-                <Link href="/"><a>Home</a></Link>
-              </li>
-              {/* <li className={css.menu__item}><a>Events</a></li>
-              <li className={css.menu__item}><a>Merch</a></li> */}
+              {menuArr.map((menu, i) => (
+                <li
+                  className={[css.menu__item, (menu.url === router.asPath) ? css['menu__item--active'] : ''].join(' ')}
+                  key={i}
+                >
+                  <Link href={menu.url}><a>{menu.label}</a></Link>
+                </li>
+              ))}
             </ul>
 
             <ul className={css.menu}>
@@ -75,12 +84,12 @@ export default ({ children, user, title }) => {
         <Container>
           {children}
 
-          {(user && (user.level < 2)) ? (
+          {(user && (user.level < 2)) && (router.asPath !== '/publish') ? (
             <Link href="/publish">
               <a
                 className={[css['button'], css['button--primary'], css['button--float']].join(' ')}
               >
-                <FaTelegramPlane /> <span>Broadcast now!</span>
+                <FaMicrophoneAlt /> <span>Broadcast now!</span>
               </a>
             </Link>
           ) : ''}

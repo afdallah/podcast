@@ -23,7 +23,8 @@ class MyApp extends App {
   constructor(props) {
     super(props);
     this.state = {
-      user: props.pageProps.user
+      user: props.pageProps.user,
+      router: props.router
     };
   }
 
@@ -38,7 +39,7 @@ class MyApp extends App {
     return (
       <NextContainer>
         <Provider store={store}>
-          <Layout user={this.state.user}>
+          <Layout user={this.state.user} router={{...this.state.router}}>
             <Component {...props} user={this.state.user} />
           </Layout>
         </Provider>
