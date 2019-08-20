@@ -23,7 +23,13 @@ const ensureAuthenticated = function (req, res, next) {
   res.sendStatus(401)
 }
 
+const ensureAuthorized = function (req, res, next) {
+  if (req.user.level > 1) next()
+  res.sendStatus(403)
+}
+
 module.exports = {
   upload,
-  ensureAuthenticated
+  ensureAuthenticated,
+  ensureAuthorized
 }

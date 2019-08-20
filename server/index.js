@@ -11,6 +11,7 @@ const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const cookieSession = require('cookie-session')
+const { ensureAuthorized } = require('./middleware')
 
 const User = require('./models/user')
 const episodeRoutes = require('./routes/episode')
@@ -128,12 +129,11 @@ app.prepare().then(() => {
     })(req, res, next);
   });
 
-  const { ensureAuthenticated } = require('./middleware')
 
   // Route for api
   server.use('/api/episode', episodeRoutes)
-  server.use('/api/user', ensureAuthenticated, userRoutes)
-  server.use('/api/publish', ensureAuthenticated, publishRoutes)
+  server.use('/api/user', userRoutes)
+  server.use('/api/publish', publishRoutes)
 
   // SSR routing
   const restrictAccess = function (req, res, next) {
@@ -141,24 +141,16 @@ app.prepare().then(() => {
     next()
   }
 
-  const ensureAuthorized = function (req, res, next) {
-    if (req.user.level > 1) next()
-    res.statusCode = 403
-    return app.render(req, res, '/_error')
-  }
-
-  server.get('/episode/:id', (req, res) => {
-    return app.render(req, res, '/episode', { id: req.params.id });
-  });
-
   server.get('/', (req, res) => {
     return app.render(req, res, '/', req.query);
   });
 
-  server.get('/publish', restrictAccess, ensureAuthorized, (req, res) => {
-    return app.render(req, res, '/publish', req.query);
-  });
+  // server.get('/publish', (req, res) => {
+  //   return app.render(req, res, '/publish', req.query);
+  // });
+
   server.use('/profile', restrictAccess)
+  server.use('/publish', restrictAccess)
 
   server.get('*', (req, res) => {
     return handle(req, res)

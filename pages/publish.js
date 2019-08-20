@@ -4,6 +4,7 @@ import Router from "next/router";
 import slug from "slug";
 import { FaSpinner } from "react-icons/fa";
 import { server } from '../config'
+import Container from '../components/Container'
 
 // Dynamically/lazyload plugin and prevent this component
 // To be rendered on the server
@@ -43,7 +44,7 @@ class Publish extends React.Component {
     }
   };
 
-  static async getInitialProps() {
+  static async getInitialProps({ req }) {
     const res = await fetch(`${server}/api/publish`);
     const guests = await res.json();
 
@@ -153,6 +154,14 @@ class Publish extends React.Component {
   };
 
   render() {
+    const { user } = this.props
+    if (user.level > 1) {
+      return (
+        <Container>
+          <h2>401 | You are not authorized</h2>
+        </Container>
+      )
+    }
     return (
       <>
         <h1 className={`${css.heading} ${css.headingXl}`}> Tell a story... </h1>

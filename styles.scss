@@ -6,6 +6,7 @@ $text-color: #D8DBEC;
 $text-color-mute: #ECEEF4;
 $text-color-disable: #ffffffab;
 $light-purple: #8B6FF3;
+$light-green: #2fcaab;
 
 // Player
 $player-height: 50px;
@@ -26,9 +27,16 @@ $nav-height: 50px;
   padding-bottom: $player-height * 2
 }
 
-:global a {
-  color: #fff;
-  text-decoration: none;
+:global {
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: all .3s ease;
+
+    &:hover {
+      color: rgba(#fff, .9);
+    }
+  }
 }
 
 img,
@@ -131,7 +139,7 @@ hr {
       left: 0;
       height: 3px;
       width: 100%;
-      background: $light-purple;
+      background: $light-green;
       border-radius: 5px;
       opacity: 0;
       transition: all .3s ease;
@@ -563,7 +571,7 @@ $gradients : (
   &--submit {
     margin-bottom: 30px;
     line-height: 52px;
-    background-image: linear-gradient(25deg, #cb86de, #673eba);
+    background-image: linear-gradient(25deg, #368CD3, $light-green);
     border: none;
     color: #fff;
   }
@@ -585,8 +593,9 @@ $gradients : (
     z-index: 10;
     box-shadow: 0 5px 15px rgba(0,0,0,.3);
     transition: width .3s ease;
-    width: 100px;
+    width: 44px;
     max-height: 44px;
+    padding: 0;
 
     span {
       visibility: hidden;

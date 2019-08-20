@@ -60,7 +60,7 @@ export default ({ children, user, title }) => {
                         </Link>
                       </li>
                       <li>
-                        <Link href="/logout">
+                        <Link href="/logout" prefetch={false}>
                           <a>Logout</a>
                         </Link>
                       </li>
@@ -74,7 +74,8 @@ export default ({ children, user, title }) => {
 
         <Container>
           {children}
-          {(user && (user.level < 2)) && (currentPath !== '/publish') ? (
+
+          {(user && (user.level < 2)) ? (
             <Link href="/publish">
               <a
                 className={[css['button'], css['button--primary'], css['button--float']].join(' ')}
