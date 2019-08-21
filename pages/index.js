@@ -17,7 +17,7 @@ const Index = (props) => {
 
   return  (
     <>
-      <h1 className={`${css.heading} ${css.headingXl}`}>Podcasts</h1>
+      <h1 className={`${css.heading} ${css.headingXl}`}>Mulai aja dulu</h1>
       <Flex>
         {props.episodes
           .sort((a, b) => new Date(b.created) - new Date(a.created))
