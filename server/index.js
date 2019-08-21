@@ -11,6 +11,7 @@ const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 const cookieSession = require('cookie-session')
+const compression = require('compression')
 const { ensureAuthorized } = require('./middleware')
 
 const User = require('./models/user')
@@ -32,6 +33,7 @@ const db = mongoose.connect(dbstring, {
 
 app.prepare().then(() => {
   const server = express()
+  server.use(compression())
 
   server.use(cookieSession({
     maxAge: 1000 * 60 * 60 * 24 * 30,

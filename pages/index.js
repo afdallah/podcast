@@ -9,11 +9,11 @@ import Flex from '../components/Flex'
 
 import css from '../styles.scss'
 
-// let cache = {}
+let cache = {}
 const Index = (props) => {
-  // if (process.browser) {
-  //   cache.episodes = props.episodes
-  // }
+  if (process.browser) {
+    cache.episodes = props.episodes
+  }
 
   return  (
     <>
@@ -31,14 +31,14 @@ const Index = (props) => {
 }
 
 Index.getInitialProps = async function () {
-  // let data
+  let data
 
-  // if (cache.episodes) {
-  //   data = cache.episodes
-  // } else {
+  if (cache.episodes) {
+    data = cache.episodes
+  } else {
     const res = await fetch(`${server}/api/episode`)
-    const data = await res.json()
-  // }
+    data = await res.json()
+  }
 
   return { episodes: data }
 }
