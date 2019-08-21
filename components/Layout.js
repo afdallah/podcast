@@ -13,13 +13,15 @@ const Player = dynamic(() => import('./Player'), {
 const menuArr = [{
   label: 'Home',
   url: '/'
-}, {
-  label: 'Merch',
-  url: '/merch'
-}, {
-  label: 'Events',
-  url: '/events'
-}]
+},
+// {
+//   label: 'Merch',
+//   url: '/merch'
+// }, {
+//   label: 'Events',
+//   url: '/events'
+// }
+]
 
 export default ({ children, user, title, router }) => {
   return (
