@@ -46,7 +46,7 @@ export default ({ children, user, title, router }) => {
             <ul className={css.menu}>
               {!user ? (
                 <li className="menu__item">
-                  <Link href="/auth/google">
+                  <Link href="/auth/google" prefetch={false}>
                     <a
                       className={[css['button'], css['button--icon'], css['button--md'], css['button--google']].join(' ')}
                     >

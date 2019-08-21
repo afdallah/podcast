@@ -1,7 +1,7 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
 import Router from "next/router";
-import slug from "slug";
+import slug from "slugify";
 import { FaSpinner } from "react-icons/fa";
 import { server } from '../config'
 import Container from '../components/Container'
