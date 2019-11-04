@@ -1,5 +1,5 @@
 import css from '../styles.scss'
 
-export default ({ children }) => (
-  <div className={css.container}>{children}</div>
+export default ({ children, ...props }) => (
+  <div className={css.container} {...props}>{children}</div>
 )

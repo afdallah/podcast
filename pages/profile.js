@@ -8,6 +8,12 @@ import Layout from "../components/Layout";
 import Flex from "../components/Flex";
 
 import css from "../styles.scss";
+import { classNames } from '../helpers'
+
+const clsHeading = classNames({
+  [css.heading]: true,
+  [css['heading--xl']]: true
+})
 
 class profile extends React.Component {
   state = {
@@ -102,8 +108,7 @@ class profile extends React.Component {
     return (
       <>
         <h1
-          className={`${css.heading}
-          ${css.headingXl}`}
+          className={clsHeading}
         >
           Hi {this.state.form.firstName || user.firstName} {user.level > 1 ? '(listener)' : '(Host)'}
         </h1>

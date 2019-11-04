@@ -165,7 +165,7 @@ class Publish extends React.Component {
 
     return (
       <>
-        <h1 className={`${css.heading} ${css.headingXl}`}> Tell a story... </h1>
+        <h1 className={`${css.heading} ${css['heading--xl']}`}> Tell a story... </h1>
         <form
           className="form"
           action="/api/episode"

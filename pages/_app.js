@@ -4,6 +4,7 @@ import withRedux from 'next-redux-wrapper'
 import makeStore from '../store'
 import { Provider } from 'react-redux'
 import Layout from '../components/Layout'
+import Soon from '../pages/soon'
 
 import 'normalize.css'
 
@@ -30,6 +31,7 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps, store } = this.props
+    const comingSoon = true
 
     const props = {
       ...pageProps,
@@ -39,9 +41,13 @@ class MyApp extends App {
     return (
       <NextContainer>
         <Provider store={store}>
-          <Layout user={this.state.user} router={{...this.state.router}}>
-            <Component {...props} user={this.state.user} />
-          </Layout>
+          {
+            comingSoon ?
+            <Soon /> :
+            <Layout user={this.state.user} router={{...this.state.router}}>
+              <Component {...props} user={this.state.user} />
+            </Layout>
+          }
         </Provider>
       </NextContainer>
     )

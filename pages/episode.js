@@ -18,6 +18,7 @@ const Episode = (props) => {
       {/* <h3><span className="badge badge-primary">{props.data.author}</span></h3> */}
       <img className={css.image} src={props.data.image.url} alt=""/>
       <Editor dark={true} theme={dark} defaultValue={props.data.content} readOnly />
+      <div>by {props.data.host}</div>
     </>
   )
 }
@@ -25,6 +26,7 @@ const Episode = (props) => {
 Episode.getInitialProps = async ({ req, store, isServer, pathname, query, ...props}) => {
   const res = await fetch(`${server}/api/episode/${query.id}`)
   const data = await res.json();
+  debugger
   store.dispatch({ type: 'CHANGE_PODCAST', payload: data.audio })
 
   return { data }
