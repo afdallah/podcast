@@ -1061,6 +1061,7 @@ input[type="range"] {
     font-weight: normal;
     line-height: 1.4;
     margin-top: 1em;
+    overflow: hidden;
 
     @media screen and (max-width: 480px) {
       font-size: 20px
@@ -1121,8 +1122,7 @@ input[type="range"] {
 
 //= Separator
 .separator {
-  &:before {
-    content: "";
+  &__item {
     position: relative;
     top: 0;
     left: 0;
