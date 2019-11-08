@@ -2,8 +2,6 @@ import App from 'next/app'
 import React from 'react'
 import { compose } from 'redux'
 import withRedux from 'next-redux-wrapper'
-import Router from "next/router";
-import withFBQ from "next-fbq";
 
 import makeStore from '../store'
 import { Provider } from 'react-redux'
@@ -32,10 +30,6 @@ class MyApp extends App {
       user: props.pageProps.user,
       router: props.router
     };
-  }
-
-  componentDidMount() {
-    // fbq('track', 'PageView');
   }
 
   render() {
@@ -71,7 +65,4 @@ class MyApp extends App {
   }
 }
 
-export default compose(
-  withRedux(makeStore),
-  withFBQ('1248192601967825', Router)
-)(MyApp)
+export default withRedux(makeStore)(MyApp)

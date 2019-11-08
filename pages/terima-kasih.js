@@ -1,6 +1,6 @@
 import React from 'react'
 import { TimelineLite, Power3, Expo, TimelineMax } from 'gsap'
-import ReactPixel from 'react-facebook-pixel'
+import Head from 'next/head'
 
 import Container from '../components/Container'
 import Separator from '../components/Separator'
@@ -107,6 +107,19 @@ class TerimaKasih extends React.Component {
         style={{
           background: 'url(../static/images/coming-bg.png) no-repeat left top'
         }}>
+        <Head>
+          <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1248192601967825');
+            fbq('track', 'CompleteRegistration');` }}
+          />
+        </Head>
         <div className={css.spinner} data-anim="spinner">
           <h2 className={css.spinner__label} data-anim="spinner-label">Ngobrol–</h2>
           <img
