@@ -20,7 +20,7 @@ const style = {
   height: '100%'
 }
 
-class Soon extends React.Component {
+class TerimaKasih extends React.Component {
   constructor(props) {
     super(props)
     this.comingsoon = null
@@ -30,7 +30,7 @@ class Soon extends React.Component {
   }
 
   componentDidMount() {
-    ReactPixel.track('ViewContent', null)
+    ReactPixel.track('CompleteRegistration', null)
     const container = this.comingsoon
     const spinner = container.querySelector('[data-anim="spinner"]')
     const label = container.querySelector('[data-anim="spinner-label"]')
@@ -121,31 +121,16 @@ class Soon extends React.Component {
         <Container style={style}>
           <div className={css.comingsoon__inner}>
             <h1 className={clsHeading} ref={el => this.heading = el}>
-              <span data-anim="heading">Coming soon!</span>
+              <span data-anim="heading">Terima kasih</span>
             </h1>
             <Separator />
             <h4 className={css.comingsoon__subheading}>
-              <span data-anim="description">We resonate Idea, Inspiration, Insight</span> <br />
-              <span data-anim="description">straight to your ear</span>
+              <span data-anim="description">Silahkan klik cek email kamu dan klik link konfirmasi</span> <br />
             </h4>
+            <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button&size=large&width=77&height=28&appId" height={28} style={{border: 'none', overflow: 'hidden'}} scrolling="no" frameBorder={0} allow="encrypted-media" />
 
-            <div className={css.newsletter} data-anim="form">
-              <form
-                className={css.newsletter__form}
-                method="POST"
-                action="https://aplikasi.kirim.email/form/125b8472-9f26-4268-ba70-8eeac37bcb96"
-              >
-                <input
-                  type="email"
-                  placeholder="Your active email"
-                  name="email"
-                  className={css.newsletter__field}
-                />
-                <input type="submit" className={css.newsletter__button} value="Subscribe"/>
-              </form>
-              <div style={{fontSize: '16px', fontStyle: 'italic', marginTop: '.5em', opacity: .8}} data-anim="description">
-                Masukan email kamu dan jadilah 1000 pendengar pertama
-              </div>
+            <div style={{fontSize: '16px', fontStyle: 'italic', marginTop: '.5em', opacity: .8, lineHeight: 1.6}} data-anim="description">
+              Dengan mengklik tombol bagikan/share anda telah membantu teman anda <br />mendapatkan update terbaru tentang internet marketing khususnya facebook ads
             </div>
           </div>
         </Container>
@@ -154,4 +139,4 @@ class Soon extends React.Component {
   }
 }
 
-export default Soon
+export default TerimaKasih
