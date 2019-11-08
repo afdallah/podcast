@@ -30,7 +30,6 @@ class TerimaKasih extends React.Component {
   }
 
   componentDidMount() {
-    ReactPixel.track('CompleteRegistration', null)
     const container = this.comingsoon
     const spinner = container.querySelector('[data-anim="spinner"]')
     const label = container.querySelector('[data-anim="spinner-label"]')

@@ -1,7 +1,9 @@
-import App, { Container as NextContainer } from 'next/app'
+import App from 'next/app'
 import React from 'react'
+import { compose } from 'redux'
 import withRedux from 'next-redux-wrapper'
-import ReactPixel from 'react-facebook-pixel';
+import Router from "next/router";
+import withFBQ from "next-fbq";
 
 import makeStore from '../store'
 import { Provider } from 'react-redux'
@@ -33,18 +35,12 @@ class MyApp extends App {
   }
 
   componentDidMount() {
-    const advancedMatching = { em: 'some@email.com' }; // optional, more info: https://developers.facebook.com/docs/facebook-pixel/pixel-with-ads/conversion-tracking#advanced_match
-    const options = {
-      autoConfig: true, 	// set pixel's autoConfig
-      debug: true, 		// enable logs
-    };
-    ReactPixel.init('1248192601967825', advancedMatching, options);
-    ReactPixel.pageView();
+    // fbq('track', 'PageView');
   }
 
   render() {
     const { Component, pageProps, store } = this.props
-    const comingSoon = true
+    const comingSoon = false
 
     const props = {
       ...pageProps,
@@ -52,7 +48,6 @@ class MyApp extends App {
     }
 
     return (
-      <NextContainer>
         <Provider store={store}>
           {
             (() => {
@@ -72,9 +67,11 @@ class MyApp extends App {
             })()
           }
         </Provider>
-      </NextContainer>
     )
   }
 }
 
-export default withRedux(makeStore)(MyApp)
+export default compose(
+  withRedux(makeStore),
+  withFBQ('1248192601967825', Router)
+)(MyApp)

@@ -30,7 +30,6 @@ class Soon extends React.Component {
   }
 
   componentDidMount() {
-    ReactPixel.track('ViewContent', null)
     const container = this.comingsoon
     const spinner = container.querySelector('[data-anim="spinner"]')
     const label = container.querySelector('[data-anim="spinner-label"]')
@@ -106,14 +105,14 @@ class Soon extends React.Component {
       <div className={css.comingsoon}
         ref={el => this.comingsoon = el}
         style={{
-          background: 'url(../static/images/coming-bg.png) no-repeat left top'
+          background: 'url(/static/images/coming-bg.png) no-repeat left top'
         }}>
         <div className={css.spinner} data-anim="spinner">
           <h2 className={css.spinner__label} data-anim="spinner-label">Ngobrol–</h2>
           <img
             className={css.spinner__logo}
             data-anim="spinner-logo"
-            src='../static/images/logo.png'
+            src='/static/images/logo.png'
             alt=""
           />
           <div className={css.spinner__bg} data-anim="spinner-bg"></div>
