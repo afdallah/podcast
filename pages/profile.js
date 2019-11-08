@@ -110,7 +110,7 @@ class profile extends React.Component {
         <h1
           className={clsHeading}
         >
-          Hi {this.state.form.firstName || user.firstName} {user.level > 1 ? '(listener)' : '(Host)'}
+          Hi {this.state.form.firstName || user.firstName} {user.level > 1 ? '🎧' : '👑'}
         </h1>
         <form
           className="form"

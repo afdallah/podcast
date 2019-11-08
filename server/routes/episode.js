@@ -15,10 +15,12 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-  Episode.findById(req.params.id, (err, episode) => {
-    if (err) next(err)
-    res.json(episode)
-  })
+  Episode
+    .findById(req.params.id, (err, episode) => {
+      if (err) next(err)
+      res.json(episode)
+    })
+    .populate('host')
 })
 
 router.post('/', ensureAuthenticated, upload.single('image'), (req, res, next) => {

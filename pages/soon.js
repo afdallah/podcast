@@ -40,6 +40,7 @@ class Soon extends React.Component {
     const form = container.querySelectorAll('[data-anim="form"]')
 
     const spinnerTl = new TimelineMax()
+
     spinnerTl
       .to(bg, 1, {
         x: '100%',
@@ -81,19 +82,19 @@ class Soon extends React.Component {
       .staggerFrom(descriptions, 1, {
         marginLeft: '-100%',
         opacity: 0,
-        form: Expo.easeInOut
+        ease: Expo.easeInOut
       }, .5, '-=.5')
       .from(form, 1, {
         opacity: '0',
         scale: '2',
-        form: Expo.easeInOut
+        ease: Expo.easeInOut
       }, '-=.5')
 
       // Master timeline
       const master = new TimelineLite()
       master
-        .add(spinnerTl)
-        .add(contentTl, '-=.5')
+        .add(spinnerTl.timeScale(2))
+        .add(contentTl.timeScale(2), '-=.5')
 
       master.play()
   }
@@ -122,7 +123,7 @@ class Soon extends React.Component {
             </h1>
             <Separator />
             <h4 className={css.comingsoon__subheading}>
-              <span data-anim="description">We resonance Idea, Inspiration, Insight</span> <br />
+              <span data-anim="description">We resonate Idea, Inspiration, Insight</span> <br />
               <span data-anim="description">straight to your ear</span>
             </h4>
 
@@ -140,6 +141,9 @@ class Soon extends React.Component {
                 />
                 <input type="submit" className={css.newsletter__button} value="Subscribe"/>
               </form>
+              <div style={{fontSize: '16px', fontStyle: 'italic', marginTop: '.5em', opacity: .8}} data-anim="description">
+                Masukan email kamu dan jadilah 1000 pendengar pertama
+              </div>
             </div>
           </div>
         </Container>
