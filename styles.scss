@@ -67,6 +67,10 @@ hr {
     overflow: hidden;
     height: 70px;
 
+    @media screen and (max-width: 500px) {
+      height: 40px;
+    }
+
     span {
       position: absolute;
       z-index: 200;
@@ -1165,6 +1169,10 @@ input[type="range"] {
     text-transform: uppercase;
     text-shadow: 10px 10px rgba(#333, .1);
     z-index: 99;
+
+    @media screen and (max-width: 500px) {
+      font-size: 6em
+    }
   }
 
   &__logo {
@@ -1174,6 +1182,10 @@ input[type="range"] {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 99;
+
+    @media screen and (max-width: 500px) {
+      max-width: 280px;
+    }
   }
 
   // &__item {
