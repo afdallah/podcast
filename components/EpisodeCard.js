@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { FaPlay } from 'react-icons/fa'
 
-import css from '../styles.scss'
-
 export default (props) => {
   return (
     <Link
@@ -16,25 +14,25 @@ export default (props) => {
       as={`/episode/${props._id}`}
     >
 
-      <div className={css.coloredCard}>
-        <div className= {css.coloredShadow} />
-        <div className={css.coloredOutline} />
-        <div className ={css.episodeCard}>
-          <div className={css.episodeHead}>
-            <h3 className={css.episodeTitle}>{props.title}</h3>
-            <h5 className={css.episodeSpeaker}>{props.host.firstName} {props.host.lastName}</h5>
-            <h6 className={css.episodeSpeakerWork} > CEO Advertisa</h6>
+      <div className="colored-card">
+        <div className="colored-shadow" />
+        <div className="colored-outline" />
+        <div className ="episode-card">
+          <div className="episode-head">
+            <h3 className="episode-title">{props.title}</h3>
+            <h5 className="episode-speaker">{props.host.firstName} {props.host.lastName}</h5>
+            <h6 className="episode-speaker-work" > CEO Advertisa</h6>
           </div>
 
-          <div className={css.episodeFooter}>
-            <div className={css.playButton}>
+          <div className="episode-footer">
+            <div className="play-button">
               <a className="btn btn-primary">
                 <img src='../static/images/play-icon.svg' />
               </a>
             </div>
 
-            <div className={css.episodeSpeakerPhoto}>
-              <img className={css.image} src={props.host.photo.url} />
+            <div className="episode-speaker-photo">
+              <img className="image" src={props.host.photo.url} />
             </div>
           </div>
         </div>

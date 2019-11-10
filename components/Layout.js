@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Head from 'next/head'
 import Router from 'next/router'
 import Container from './Container'
-import css from '../styles.scss'
 import { FaGoogle, FaMicrophoneAlt } from 'react-icons/fa'
 
 import dynamic from "next/dynamic";
@@ -29,13 +28,13 @@ export default ({ children, user, title, router }) => {
       <Head>
         <title>{title || 'Marketing podcast'}</title>
       </Head>
-      <div className={css.layout}>
-        <div className={css.navigation}>
-          <div className={css.navigation__inner}>
-            <ul className={css.menu}>
+      <div className="layout">
+        <div className="navigation">
+          <div className="navigation__inner">
+            <ul className="menu">
               {menuArr.map((menu, i) => (
                 <li
-                  className={[css.menu__item, (menu.url === router.asPath) ? css['menu__item--active'] : ''].join(' ')}
+                  className={`menu__item ${(menu.url === router.asPath) ? "menu__item--active" : ''}`}
                   key={i}
                 >
                   <Link href={menu.url}><a>{menu.label}</a></Link>
@@ -43,12 +42,12 @@ export default ({ children, user, title, router }) => {
               ))}
             </ul>
 
-            <ul className={css.menu}>
+            <ul className="menu">
               {!user ? (
                 <li className="menu__item">
                   <Link href="/auth/google" prefetch={false}>
                     <a
-                      className={[css['button'], css['button--icon'], css['button--md'], css['button--google']].join(' ')}
+                      className="button button--icon button--md button--google"
                     >
                       <FaGoogle /> Sign In
                     </a>
@@ -56,15 +55,15 @@ export default ({ children, user, title, router }) => {
                 </li>
               ) : (
                 <>
-                  <li className={[css['menu__item'], css['dropdown']].join(' ')}>
+                  <li className="menu__item dropdown">
                     <a>
-                      <span className={css.avatar}>
+                      <span className="avatar">
                         <img src={user.photo.url} alt=""/>
                       </span>
                       {user.firstName}
                     </a>
 
-                    <ul className={css['dropdown-menu']}>
+                    <ul className="dropdown-menu">
                       <li>
                         <Link href="/profile">
                           <a>Profile</a>
@@ -89,7 +88,7 @@ export default ({ children, user, title, router }) => {
           {(user && (user.level < 2)) && (router.asPath !== '/publish') ? (
             <Link href="/publish">
               <a
-                className={[css['button'], css['button--primary'], css['button--float']].join(' ')}
+                className="button button--primary button--float"
               >
                 <FaMicrophoneAlt /> <span>Broadcast now!</span>
               </a>
@@ -97,7 +96,7 @@ export default ({ children, user, title, router }) => {
           ) : ''}
         </Container>
         {/* Footer */}
-        <div className={css['fixed-bottom']}>
+        <div className="fixed-bottom">
           <Container>
             <Player />
           </Container>

@@ -7,12 +7,11 @@ import Layout from '../components/Layout'
 import EpisodeCard from '../components/EpisodeCard'
 import Flex from '../components/Flex'
 
-import css from '../styles.scss'
 import { classNames } from '../helpers'
 
 const clsHeading = classNames({
-  [css.heading]: true,
-  [css['heading--xl']]: true
+  'heading': true,
+  'heading--xl': true
 })
 
 let cache = {}

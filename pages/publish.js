@@ -165,7 +165,7 @@ class Publish extends React.Component {
 
     return (
       <>
-        <h1 className={`${css.heading} ${css['heading--xl']}`}> Tell a story... </h1>
+        <h1 className="heading heading--xl"> Tell a story... </h1>
         <form
           className="form"
           action="/api/episode"
@@ -175,9 +175,9 @@ class Publish extends React.Component {
         >
           <Flex>
             <Flex.Item span="3">
-              <div className={css.form__item}>
+              <div className="form__item">
                 <label
-                  className={[css.label, css["label--file"]].join(" ")}
+                  className="label label--file"
                   htmlFor="podcast-image"
                 >
                   Artwork
@@ -185,7 +185,7 @@ class Publish extends React.Component {
                     style={{
                       marginTop: "7px"
                     }}
-                    className={css.image}
+                    className="image"
                     src={
                       this.state.imagePreview
                         ? this.state.imagePreview
@@ -205,8 +205,8 @@ class Publish extends React.Component {
               </div>
             </Flex.Item>
             <Flex.Item>
-              <div className={css.form__item}>
-                <label className={css.label} htmlFor="podcast-title">
+              <div className="form__item">
+                <label className="label" htmlFor="podcast-title">
 
                   Title
                 </label>
@@ -214,14 +214,14 @@ class Publish extends React.Component {
                   onChange={this.handleChange}
                   type="text"
                   name="title"
-                  className={css.input}
+                  className="input"
                   id="podcast-title"
                   placeholder="Enter podcast title"
                   required
                 />
               </div>
               <div
-                className={css.form__item}
+                className="form__item"
                 style={{
                   marginTop: "-25px"
                 }}
@@ -237,8 +237,8 @@ class Publish extends React.Component {
                   required
                 />
               </div>
-              <div className={css.form__item}>
-                <label className={css.label} htmlFor="podcast-url">
+              <div className="form__item">
+                <label className="label" htmlFor="podcast-url">
 
                   Audio url
                 </label>
@@ -246,18 +246,18 @@ class Publish extends React.Component {
                   onChange={this.handleChange}
                   name="audio"
                   type="text"
-                  className={css.input}
+                  className="input"
                   id="podcast-url"
                   placeholder="http://host.com/filename.mp3"
                   required
                 />
               </div>
-              <div className={css.form__item}>
-                <label className={css.label} htmlFor="podcast-content">
+              <div className="form__item">
+                <label className="label" htmlFor="podcast-content">
 
                   Content
                 </label>
-                <div className={css["content-editor"]}>
+                <div className="content-editor">
                   <Editor
                     dark={true}
                     id="podcast-content"
@@ -269,8 +269,8 @@ class Publish extends React.Component {
                 </div>
               </div>
 
-              {/* <div className={css.form__item}>
-                <label className={css.label} htmlFor="podcast-guest">
+              {/* <div className="form__item">
+                <label className="label" htmlFor="podcast-guest">
                   Guest
                 </label>
                 <Select name="guest" onChange={this.handleSelect} required>
@@ -284,12 +284,12 @@ class Publish extends React.Component {
 
               <button
                 type="submit"
-                className={[css.button, css["button--submit"]].join(" ")}
+                className="button button--submit"
                 disabled={this.state.isFetching}
               >
                 {this.state.isFetching ?
                   <FaSpinner
-                    className={css.spinning}
+                    className="spinning"
                   /> :
                   ''
                 }

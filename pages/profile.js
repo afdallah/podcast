@@ -7,12 +7,11 @@ import { server } from '../config'
 import Layout from "../components/Layout";
 import Flex from "../components/Flex";
 
-import css from "../styles.scss";
 import { classNames } from '../helpers'
 
 const clsHeading = classNames({
-  [css.heading]: true,
-  [css['heading--xl']]: true
+  'heading': true,
+  'heading--xl': true
 })
 
 class profile extends React.Component {
@@ -120,9 +119,9 @@ class profile extends React.Component {
         >
           <Flex>
             <Flex.Item span="4">
-              <div className={css.form__item}>
+              <div className="form__item">
                 <label
-                  className={[css.label, css["label--file"]].join(" ")}
+                  className="label label--file"
                   htmlFor="profile-photo"
                 >
                   Profile photo
@@ -130,7 +129,7 @@ class profile extends React.Component {
                     style={{
                       marginTop: "7px"
                     }}
-                    className={css.image}
+                    className="image"
                     src={
                       this.state.imagePreview
                         ? this.state.imagePreview
@@ -151,8 +150,8 @@ class profile extends React.Component {
             <Flex.Item>
               <Flex gap="narrow">
                 <Flex.Item>
-                  <div className={css.form__item}>
-                    <label className={css.label} htmlFor="first-name">
+                  <div className="form__item">
+                    <label className="label" htmlFor="first-name">
 
                       First Name
                     </label>
@@ -160,7 +159,7 @@ class profile extends React.Component {
                       onChange={this.handleChange}
                       type="text"
                       name="firstName"
-                      className={css.input}
+                      className="input"
                       id="firstName"
                       defaultValue={user.firstName}
                       required
@@ -170,8 +169,8 @@ class profile extends React.Component {
 
                 </Flex.Item>
                 <Flex.Item>
-                  <div className={css.form__item}>
-                    <label className={css.label} htmlFor="last-name">
+                  <div className="form__item">
+                    <label className="label" htmlFor="last-name">
 
                       Last Name
                     </label>
@@ -179,7 +178,7 @@ class profile extends React.Component {
                       onChange={this.handleChange}
                       type="text"
                       name="lastName"
-                      className={css.input}
+                      className="input"
                       id="lastName"
                       defaultValue={user.lastName}
                       required
@@ -189,8 +188,8 @@ class profile extends React.Component {
 
                 </Flex.Item>
               </Flex>
-              <div className={css.form__item}>
-                <label className={css.label} htmlFor="email-address">
+              <div className="form__item">
+                <label className="label" htmlFor="email-address">
 
                   Email Address
                 </label>
@@ -198,7 +197,7 @@ class profile extends React.Component {
                   onChange={this.handleChange}
                   name="email"
                   type="email"
-                  className={css.input}
+                  className="input"
                   id="email"
                   placeholder="Enter your email address"
                   required
@@ -207,12 +206,12 @@ class profile extends React.Component {
               </div>
               <button
                 type="submit"
-                className={[css.button, css["button--submit"]].join(" ")}
+                className="button button--submit"
                 disabled={this.state.isDisabled && !this.state.isFetching}
               >
                 {this.state.isFetching ?
                   <FaSpinner
-                    className={css.spinning}
+                    className="spinning"
                   /> :
                   ''
                 }
@@ -226,7 +225,7 @@ class profile extends React.Component {
               <Flex>
                 <Flex.Item>
                   <span style={{opacity: .8, marginRight: '10px'}}>I want to be a host! </span>
-                  <a onClick={() => alert('coming soon')} className={[css.button, css['button--xs']].join(' ')}>Send request</a>
+                  <a onClick={() => alert('coming soon')} className="button button--xs">Send request</a>
                 </Flex.Item>
               </Flex>
             </>

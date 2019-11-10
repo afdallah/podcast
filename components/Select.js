@@ -1,4 +1,3 @@
-import css from '../styles.scss'
 import Option from './Option'
 import { classNames } from '../helpers'
 
@@ -77,16 +76,16 @@ class Select extends React.Component {
   render() {
     const { children, isFocus } = this.state
     const classes = classNames({
-      [css['ui-select__dropdown']]: true,
-      [css['ui-select__dropdown--hidden']]: !isFocus
+      'ui-select__dropdown': true,
+      'ui-select__dropdown--hidden': !isFocus
     })
 
     return (
-      <div className={css['ui-select']} ref="SelectRef">
+      <div className="ui-select" ref="SelectRef">
         <input
           type="input"
           value={this.state.selected}
-          className={css.input}
+          className="input"
           onChange={this.handleSearch}
           onFocus={() => {this.setState({ isFocus: true })}}
           required={this.props.required && !this.state.value}

@@ -1,6 +1,5 @@
 import fetch from 'isomorphic-unfetch'
 import Head from 'next/head'
-import css from '../styles.scss'
 
 import dynamic from "next/dynamic";
 const Editor = dynamic(() => import("rich-markdown-editor"), {
@@ -16,7 +15,7 @@ const Episode = (props) => {
     <>
       <h1>{props.data.title}</h1>
       {/* <h3><span className="badge badge-primary">{props.data.author}</span></h3> */}
-      <img className={css.image} src={props.data.image.url} alt=""/>
+      <img className="image" src={props.data.image.url} alt=""/>
       <Editor dark={true} theme={dark} defaultValue={props.data.content} readOnly />
       <div>by {props.data.host.displayName}</div>
       <img src={props.data.host.photo.url} alt=""/>

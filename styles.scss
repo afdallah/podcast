@@ -17,7 +17,7 @@ $nav-height: 50px;
   outline: none;
 }
 
-:global body {
+body {
   color: $text-color;
   background: $dark-grey;
   font-family: "HK grotesk", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -27,15 +27,13 @@ $nav-height: 50px;
   padding-bottom: $player-height * 2
 }
 
-:global {
-  a {
-    color: #fff;
-    text-decoration: none;
-    transition: all .3s ease;
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: all .3s ease;
 
-    &:hover {
-      color: rgba(#fff, .9);
-    }
+  &:hover {
+    color: rgba(#fff, .9);
   }
 }
 
@@ -303,7 +301,7 @@ $gradients : (
   )
 );
 
-.coloredCard {
+.colored-card {
   position: relative;
   margin: 0 20px 40px;
   width: 100%;
@@ -322,8 +320,8 @@ $gradients : (
     $color1: nth($properties, 1);
     $color2: nth($properties, 2);
 
-    &:nth-child(#{$i}) .coloredShadow,
-    &:nth-child(#{$i}) .coloredShadow  {
+    &:nth-child(#{$i}) .colored-shadow,
+    &:nth-child(#{$i}) .colored-shadow  {
       position: absolute;
       content: '';
       width: 50%;
@@ -341,7 +339,7 @@ $gradients : (
     }
 
     @media screen and (min-width: 1000px) {
-      &:nth-child(#{$i}n + #{$i}) .coloredOutline {
+      &:nth-child(#{$i}n + #{$i}) .colored-outline {
         width: calc(100% + 6px + 14px);
         height: calc(100% + 6px + 14px);
         position: absolute;
@@ -353,7 +351,7 @@ $gradients : (
         opacity: 0;
       }
 
-      &:nth-child(#{$i}n + #{$i}) .coloredOutline:before {
+      &:nth-child(#{$i}n + #{$i}) .colored-outline:before {
         content: '';
         width: calc(100% - 6px);
         height: calc(100% - 6px);
@@ -367,25 +365,25 @@ $gradients : (
       }
 
 
-      &:hover .coloredOutline,
-      &:hover .coloredOutline:before,
-      &:hover .coloredShadow {
+      &:hover .colored-outline,
+      &:hover .colored-outline:before,
+      &:hover .colored-shadow {
         visibility: visible;
         opacity: 1;
       }
 
-      &:hover .coloredOutline,
-      &:hover .coloredOutline::before {
+      &:hover .colored-outline,
+      &:hover .colored-outline::before {
         opacity: .7
       }
 
-      &:hover .episodeCard,
-      &:hover .coloredOutline {
+      &:hover .episode-card,
+      &:hover .colored-outline {
         transform: translateY(-10px);
       }
     }
 
-    &:nth-child(#{$i}n + #{$i}) .episodeCard {
+    &:nth-child(#{$i}n + #{$i}) .episode-card {
         background-image: linear-gradient(39deg, #{$color1}, #{$color2});
         position:relative;
         z-index: 3;
@@ -394,7 +392,7 @@ $gradients : (
 }
 
 .episode {
-  &Card {
+  &-card {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -407,7 +405,7 @@ $gradients : (
     transition: all .3s ease;
   }
 
-  &Title {
+  &-title {
     font-size: 20px;
     text-transform: initial;
     font-weight: 500;
@@ -415,20 +413,20 @@ $gradients : (
     color: #fff;
   }
 
-  &Speaker {
+  &-speaker {
     font-size: 14px;
     color: #fff;
     margin: 0 0 .5em;
     font-weight: 500;
 
-    &Work {
+    &--work {
       color: #fff;
       font-size: 12px;
       margin: 0;
       font-weight: 500;
     }
 
-    &Photo {
+    &-photo {
       width: 50px;
       height: 50px;
       border: 2px solid #fff;
@@ -437,7 +435,7 @@ $gradients : (
     }
   }
 
-  &Footer {
+  &-footer {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -445,7 +443,7 @@ $gradients : (
 
 }
 
-.playButton {
+.play-button {
   text-align: center;
 }
 
@@ -600,6 +598,16 @@ $gradients : (
     background: #4285F4;
     color: #fff;
     border-color: #4285F4;
+    height: 80%!important;
+
+    &:hover {
+      background: darken(#4285F4, 5%);
+      border-color: darken(#4285F4, 5%)
+    }
+
+    &:after {
+      display: none;
+    }
   }
 
   &--float {

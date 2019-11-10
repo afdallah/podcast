@@ -9,9 +9,9 @@ import { classNames } from '../helpers'
 import Flex from 'rich-markdown-editor/lib/components/Flex'
 
 const clsHeading = classNames({
-  [css.heading]: true,
-  [css['heading--xl']]: true,
-  [css['heading--reveal']]: true
+  'heading': true,
+  'heading--xl': true,
+  'heading--reveal': true
 })
 
 const style = {
@@ -102,7 +102,7 @@ class Soon extends React.Component {
 
   render() {
     return (
-      <div className={css.comingsoon}
+      <div className="comingsoon"
         ref={el => this.comingsoon = el}
         style={{
           background: 'url(/static/images/coming-bg.png) no-repeat left top'
@@ -121,30 +121,30 @@ class Soon extends React.Component {
             fbq('track', 'ViewContent');` }}
           />
         </Head>
-        <div className={css.spinner} data-anim="spinner">
-          <h2 className={css.spinner__label} data-anim="spinner-label">Ngobrol–</h2>
+        <div className="spinner" data-anim="spinner">
+          <h2 className="spinner__label" data-anim="spinner-label">Ngobrol–</h2>
           <img
-            className={css.spinner__logo}
+            className="spinner__logo"
             data-anim="spinner-logo"
             src='/static/images/logo.png'
             alt=""
           />
-          <div className={css.spinner__bg} data-anim="spinner-bg"></div>
+          <div className="spinner__bg" data-anim="spinner-bg"></div>
         </div>
         <Container style={style}>
-          <div className={css.comingsoon__inner}>
+          <div className="comingsoon__inner">
             <h1 className={clsHeading} ref={el => this.heading = el}>
               <span data-anim="heading">Coming soon!</span>
             </h1>
             <Separator />
-            <h4 className={css.comingsoon__subheading}>
+            <h4 className="comingsoon__subheading">
               <span data-anim="description">We resonate Idea, Inspiration, Insight</span> <br />
               <span data-anim="description">straight to your ear</span>
             </h4>
 
-            <div className={css.newsletter} data-anim="form">
+            <div className="newsletter" data-anim="form">
               <form
-                className={css.newsletter__form}
+                className="newsletter__form"
                 method="POST"
                 action="https://aplikasi.kirim.email/form/125b8472-9f26-4268-ba70-8eeac37bcb96"
               >
@@ -152,9 +152,9 @@ class Soon extends React.Component {
                   type="email"
                   placeholder="Your active email"
                   name="email"
-                  className={css.newsletter__field}
+                  className="newsletter__field"
                 />
-                <input type="submit" className={css.newsletter__button} value="Subscribe"/>
+                <input type="submit" className="newsletter__button" value="Subscribe"/>
               </form>
               <div style={{fontSize: '16px', fontStyle: 'italic', marginTop: '.5em', opacity: .8}} data-anim="description">
                 Masukan email kamu dan jadilah 1000 pendengar pertama

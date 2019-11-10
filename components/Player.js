@@ -1,5 +1,4 @@
 import React from 'react'
-import css from '../styles.scss'
 import { FiPlay } from 'react-icons/fa'
 import { Media, Player, controls, utils } from 'react-media-player'
 import { connect } from 'react-redux'
@@ -30,20 +29,20 @@ class AudioPlayer extends React.Component {
         {mediaProps => (
           <div
             onKeyDown={keyboardControls.bind(null, mediaProps)}
-            className={css['media-wrapper']}
+            className="media-wrapper"
           >
             <Player
               ref={c => (this._player = c)}
               src={this.props.player.nowPlaying}
-              className={css["media-player" ]}
+              className="media-player"
             />
-            <div className={css['media-controls']}>
-              <PlayPause className={[css['media-control'], css['media-control--play-pause']].join(' ')} />
-              <CurrentTime className={[css['media-control'], css['media-control--current-time']].join(' ')} />
-              <SeekBar className={[css['media-control'], css['media-control--volume-range']].join(' ')} />
-              <Duration className={[css['media-control'], css['media-control--duration']].join(' ')} />
-              <MuteUnmute className={[css['media-control'], css['media-control--mute-unmute']].join(' ')} />
-              <Volume className={[css['media-control'], css['media-control--volume']].join(' ')} />
+            <div className="media-controls">
+              <PlayPause className="media-control media-control--play-pause" />
+              <CurrentTime className="media-control media-control--current-time" />
+              <SeekBar className="media-control media-control--volume-range" />
+              <Duration className="media-control media-control--duration" />
+              <MuteUnmute className="media-control media-control--mute-unmute" />
+              <Volume className="media-control media-control--volume" />
             </div>
           </div>
         )}

@@ -9,9 +9,9 @@ import { classNames } from '../helpers'
 import Flex from 'rich-markdown-editor/lib/components/Flex'
 
 const clsHeading = classNames({
-  [css.heading]: true,
-  [css['heading--xl']]: true,
-  [css['heading--reveal']]: true
+  'heading': true,
+  'heading--xl': true,
+  'heading--reveal': true
 })
 
 const style = {
@@ -102,7 +102,7 @@ class TerimaKasih extends React.Component {
 
   render() {
     return (
-      <div className={css.comingsoon}
+      <div className="comingsoon"
         ref={el => this.comingsoon = el}
         style={{
           background: 'url(../static/images/coming-bg.png) no-repeat left top'
@@ -120,23 +120,23 @@ class TerimaKasih extends React.Component {
             fbq('track', 'CompleteRegistration');` }}
           />
         </Head>
-        <div className={css.spinner} data-anim="spinner">
-          <h2 className={css.spinner__label} data-anim="spinner-label">Ngobrol–</h2>
+        <div className="spinner" data-anim="spinner">
+          <h2 className="spinner__label" data-anim="spinner-label">Ngobrol–</h2>
           <img
-            className={css.spinner__logo}
+            className="spinner__logo"
             data-anim="spinner-logo"
             src='../static/images/logo.png'
             alt=""
           />
-          <div className={css.spinner__bg} data-anim="spinner-bg"></div>
+          <div className="spinner__bg" data-anim="spinner-bg"></div>
         </div>
         <Container style={style}>
-          <div className={css.comingsoon__inner}>
+          <div className="comingsoon__inner">
             <h1 className={clsHeading} ref={el => this.heading = el}>
               <span data-anim="heading">Terima kasih</span>
             </h1>
             <Separator />
-            <h4 className={css.comingsoon__subheading}>
+            <h4 className="comingsoon__subheading">
               <span data-anim="description">Silahkan klik cek email kamu dan klik link konfirmasi</span> <br />
             </h4>
 

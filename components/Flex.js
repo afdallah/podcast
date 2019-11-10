@@ -1,12 +1,11 @@
-import css from '../styles.scss'
 import flexItem from './FlexItem'
 import { classNames } from '../helpers'
 
 const Flex = ({ children, ...props }) => {
   const { gap } = props
   const classes = classNames({
-    [css.flex]: true,
-    [css[`flex--gap-${props.gap}`]]: props.gap
+    'flex': true,
+    [`flex--gap-${props.gap}`]: props.gap
   })
 
   return (
