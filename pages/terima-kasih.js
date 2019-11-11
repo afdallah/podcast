@@ -140,7 +140,7 @@ class TerimaKasih extends React.Component {
               <span data-anim="description">Silahkan klik cek email kamu dan klik link konfirmasi</span> <br />
             </h4>
 
-            <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fngobrol.im%2Fterima-kasih&layout=button_count&size=large&appId=894710783972357&width=102&height=28" width={102} height={28} style={{border: 'none', overflow: 'hidden'}} scrolling="no" frameBorder={0} allowTransparency="true" allow="encrypted-media" />
+            <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fngobrol.im%2Fsoon&layout=button_count&size=small&appId=894710783972357&width=89&height=20" width={89} height={20} style={{border: 'none', overflow: 'hidden'}} scrolling="no" frameBorder={0} allowTransparency="true" allow="encrypted-media" />
             <div style={{fontSize: '16px', fontStyle: 'italic', marginTop: '.5em', opacity: .8, lineHeight: 1.6}} data-anim="description">
               Dengan mengklik tombol bagikan/share anda telah membantu teman anda <br />mendapatkan update terbaru tentang internet marketing khususnya facebook ads
             </div>

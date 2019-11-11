@@ -39,6 +39,7 @@ a {
 
 img,
 .image {
+  display: block;
   max-width: 100%;
   height: auto;
 }
@@ -419,7 +420,7 @@ $gradients : (
     margin: 0 0 .5em;
     font-weight: 500;
 
-    &--work {
+    &-work {
       color: #fff;
       font-size: 12px;
       margin: 0;
@@ -432,6 +433,62 @@ $gradients : (
       border: 2px solid #fff;
       border-radius: 10px;
       overflow:hidden;
+    }
+  }
+
+  &-ref {
+    border: 2px solid #2FCAAB;
+    position: relative;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: calc(1em + 15px);
+
+    &__title {
+      margin: 0;
+      position: absolute;
+      left: 15px;
+      top: -15px;
+      display: inline-block;
+      height: 30px;
+      padding: 0 20px;
+      line-height: 30px;
+      background: #1C1E32;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    &__list {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 1em;
+      }
+
+      li:before {
+        position: relative;
+        content: '';
+        width: 7px;
+        height: 7px;
+        background: #2EDCA0;
+        display: inline-block;
+        margin-right: .5em;
+        border-radius: 50%;
+      }
+
+      a {
+        position: relative;
+      }
+
+      a:after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        content: '';
+        height: 1px;
+        width: 100%;
+        background: #2EDCA0;
+      }
     }
   }
 
@@ -740,6 +797,7 @@ $gradients : (
 }
 
 .avatar {
+  display: inline-block;
   width: 30px;
   height: 30px;
   border-radius: 50px;
@@ -1201,3 +1259,5 @@ input[type="range"] {
   //   background: darken(#1C1E32, 1%);
   // }
 }
+
+// Episode ref links

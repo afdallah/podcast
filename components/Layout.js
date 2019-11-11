@@ -44,7 +44,7 @@ export default ({ children, user, title, router }) => {
 
             <ul className="menu">
               {!user ? (
-                <li className="menu__item">
+                <li className="menu__item" style={{paddingRight: 0}}>
                   <Link href="/auth/google" prefetch={false}>
                     <a
                       className="button button--icon button--md button--google"

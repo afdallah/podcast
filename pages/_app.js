@@ -34,7 +34,7 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps, store } = this.props
-    const comingSoon = false
+    const comingSoon = true
 
     const props = {
       ...pageProps,

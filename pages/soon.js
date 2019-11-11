@@ -109,6 +109,11 @@ class Soon extends React.Component {
         }}>
 
         <Head>
+          <title>Ngobrol.im | Marketing Podcast</title>
+          <meta property="og:title" content="Ngobrol.im | Marketing Podcast" />
+          <meta property="og:type" content="news.publishes" />
+          <meta property="og:url" content="http://www.ngobrol.im" />
+          <meta property="og:image" content="../static/image/og-image.png" />
           <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -139,7 +144,7 @@ class Soon extends React.Component {
             <Separator />
             <h4 className="comingsoon__subheading">
               <span data-anim="description">We resonate Idea, Inspiration, Insight</span> <br />
-              <span data-anim="description">straight to your ear</span>
+              <span data-anim="description">straight to your ears</span>
             </h4>
 
             <div className="newsletter" data-anim="form">

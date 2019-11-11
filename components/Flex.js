@@ -9,7 +9,7 @@ const Flex = ({ children, ...props }) => {
   })
 
   return (
-    <div className={classes}>{children}</div>
+    <div className={classes} {...props}>{children}</div>
   )
 }
 
