@@ -110,12 +110,12 @@ class Soon extends React.Component {
 
         <Head>
           <title>Ngobrol.im | Marketing Podcast</title>
-          <meta property="og:title" content="Ngobrol.im | Marketing Podcast">
-          <meta property="og:site_name" content="Ngobrol.im">
-          <meta property="og:url" content="http://ngobrol.im">
-          <meta property="og:description" content="Yuk subscribe dan jadi 1000 pendengar pertama">
-          <meta property="og:type" content="website">
-          <meta property="og:image" content="http://i.imgur.com/ZxioIeh.png">
+          <meta property="og:title" content="Ngobrol.im | Marketing Podcast" />
+          <meta property="og:site_name" content="Ngobrol.im" />
+          <meta property="og:url" content="http://ngobrol.im" />
+          <meta property="og:description" content="Yuk subscribe dan jadi 1000 pendengar pertama" />
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content="http://i.imgur.com/ZxioIeh.png" />
           <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
