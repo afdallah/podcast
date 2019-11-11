@@ -113,7 +113,7 @@ class Soon extends React.Component {
           <meta property="og:title" content="Ngobrol.im | Marketing Podcast" />
           <meta property="og:type" content="news.publishes" />
           <meta property="og:url" content="http://www.ngobrol.im" />
-          <meta property="og:image" content="../static/image/og-image.png" />
+          <meta property="og:image" content="https://i.imgur.com/ZxioIeh.png" />
           <script dangerouslySetInnerHTML={{ __html: `!function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
