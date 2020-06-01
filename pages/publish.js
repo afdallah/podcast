@@ -189,7 +189,7 @@ class Publish extends React.Component {
                     src={
                       this.state.imagePreview
                         ? this.state.imagePreview
-                        : "./static/images/upload.svg"
+                        : "./upload.svg"
                     }
                   />
                   <input

@@ -31,7 +31,7 @@ const Episode = (props) => {
               <span>by {props.data.host.displayName}</span>
             </Flex.Item>
             <Flex.Item style={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end'}}>
-              <img src="../static/images/calendar.png" alt="" style={{marginRight: '.5em'}} />
+              <img src="../calendar.png" alt="" style={{marginRight: '.5em'}} />
               <span>20 Januari 2010</span>
             </Flex.Item>
           </Flex>

@@ -105,7 +105,7 @@ class Soon extends React.Component {
       <div className="comingsoon"
         ref={el => this.comingsoon = el}
         style={{
-          background: 'url(/static/images/coming-bg.png) no-repeat left top'
+          background: 'url(/coming-bg.png) no-repeat left top'
         }}>
 
         <Head>
@@ -133,7 +133,7 @@ class Soon extends React.Component {
           <img
             className="spinner__logo"
             data-anim="spinner-logo"
-            src='/static/images/logo.png'
+            src='/logo.png'
             alt=""
           />
           <div className="spinner__bg" data-anim="spinner-bg"></div>

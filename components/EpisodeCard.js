@@ -27,7 +27,7 @@ export default (props) => {
           <div className="episode-footer">
             <div className="play-button">
               <a className="btn btn-primary">
-                <img src='../static/images/play-icon.svg' />
+                <img src='/play-icon.svg' />
               </a>
             </div>
 
